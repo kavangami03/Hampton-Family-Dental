@@ -152,12 +152,16 @@ export default function Hero() {
         <div className="h-16 w-px bg-gradient-to-b from-white/30 to-transparent" />
       </motion.div>
 
-      {/* ───────── Top-right premium stamp ───────── */}
+      {/* ───────── Top-right premium stamp ─────────
+          Positioned safely below the fixed header at every breakpoint.
+          Header height: ~120px (utility bar + main bar). Top-44 (176px)
+          gives comfortable clearance even before the user scrolls. */}
       <motion.div
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden md:flex absolute top-36 right-10 z-10 w-40 h-40
+        className="hidden md:flex absolute top-44 lg:top-48 right-4 lg:right-10 z-20
+          w-32 lg:w-40 h-32 lg:h-40
           items-center justify-center pointer-events-none"
       >
         <motion.div
@@ -187,12 +191,12 @@ export default function Hero() {
           </svg>
         </motion.div>
         <div className="absolute inset-3 rounded-full border border-primary-light/25" />
-        <div className="relative flex flex-col items-center justify-center w-20 h-20 rounded-full bg-primary/20 border border-primary/40 shadow-[0_0_30px_rgba(11,179,182,0.4)]">
-          <Award className="w-6 h-6 text-primary-light mb-1" strokeWidth={2.2} />
-          <span className="font-heading text-white text-base font-bold leading-none">
+        <div className="relative flex flex-col items-center justify-center w-16 lg:w-20 h-16 lg:h-20 rounded-full bg-primary/20 border border-primary/40 shadow-[0_0_30px_rgba(11,179,182,0.4)]">
+          <Award className="w-5 lg:w-6 h-5 lg:h-6 text-primary-light mb-0.5 lg:mb-1" strokeWidth={2.2} />
+          <span className="font-heading text-white text-sm lg:text-base font-bold leading-none">
             20+
           </span>
-          <span className="text-primary-light text-[8px] tracking-[0.2em] uppercase mt-0.5 font-semibold">
+          <span className="text-primary-light text-[7px] lg:text-[8px] tracking-[0.2em] uppercase mt-0.5 font-semibold">
             Years
           </span>
         </div>
