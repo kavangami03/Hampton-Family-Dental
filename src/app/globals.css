@@ -160,20 +160,61 @@
   50% { box-shadow: 0 0 40px var(--color-primary-glow), 0 0 60px rgba(11, 179, 182, 0.15); }
 }
 
-/* Smooth scrollbar styling */
+/* ─── Thin, on-theme scrollbars ─── */
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(40, 47, 90, 0.35) transparent;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-beige-light);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-navy);
-  border-radius: 4px;
+  background: rgba(40, 47, 90, 0.25);
+  border-radius: 999px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Utility: hide scrollbar but keep scrollability (for horizontal strips) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Utility: thin scrollbar that fades in on hover */
+.scrollbar-soft {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(40, 47, 90, 0.15) transparent;
+}
+.scrollbar-soft::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.scrollbar-soft::-webkit-scrollbar-thumb {
+  background: rgba(40, 47, 90, 0.15);
+  border-radius: 999px;
+}
+.scrollbar-soft:hover::-webkit-scrollbar-thumb {
+  background: rgba(40, 47, 90, 0.4);
 }

@@ -150,7 +150,7 @@ export default function MobileMenu({
         </motion.div>
 
         {/* ────────── Nav links ────────── */}
-        <nav className="relative z-10 flex-1 px-6 py-4 overflow-y-auto">
+        <nav className="relative z-10 flex-1 min-h-0 px-6 py-2 overflow-y-auto scrollbar-soft">
           {links.map((link, i) => {
             const id = link.href.replace("#", "");
             const isActive = activeSection === id;
@@ -164,7 +164,7 @@ export default function MobileMenu({
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="group flex items-center justify-between py-4
+                  className="group flex items-center justify-between py-2.5
                     border-b border-white/8 transition-colors"
                 >
                   <div className="flex items-baseline gap-3">
@@ -176,7 +176,7 @@ export default function MobileMenu({
                       0{i + 1}
                     </span>
                     <span
-                      className={`font-heading text-[1.6rem] leading-none transition-colors ${
+                      className={`font-heading text-[1.25rem] leading-none transition-colors ${
                         isActive
                           ? "text-primary-light"
                           : "text-white group-hover:text-primary-light"
@@ -186,7 +186,7 @@ export default function MobileMenu({
                     </span>
                   </div>
                   <ArrowUpRight
-                    className={`w-4 h-4 transition-all duration-300
+                    className={`w-3.5 h-3.5 transition-all duration-300
                       ${
                         isActive
                           ? "text-primary-light translate-x-0.5 -translate-y-0.5"
@@ -200,7 +200,7 @@ export default function MobileMenu({
         </nav>
 
         {/* ────────── Info cards ────────── */}
-        <div className="relative z-10 px-6 pt-2 pb-6 space-y-2.5">
+        <div className="relative z-10 px-6 pt-2 pb-5 space-y-2 shrink-0">
           <motion.a
             href="tel:+15551234567"
             custom={0}

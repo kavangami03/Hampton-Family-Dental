@@ -2,19 +2,67 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle2,
+  Sparkles,
+  ArrowUpRight,
+  AlertCircle,
+  Calendar,
+  ShieldCheck,
+} from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, label: "Visit Us", value: "123 Hampton Boulevard, Suite 200", sub: "Hampton, NY 11946" },
-  { icon: Phone, label: "Call Us", value: "(555) 123-4567", sub: "Mon-Fri: 8am - 6pm" },
-  { icon: Mail, label: "Email Us", value: "hello@hamptonfamilydental.com", sub: "We reply within 24 hours" },
-  { icon: Clock, label: "Hours", value: "Mon-Fri: 8am - 6pm", sub: "Sat: 9am - 2pm | Sun: Closed" },
+  {
+    icon: MapPin,
+    label: "Visit Us",
+    value: "123 Hampton Boulevard, Suite 200",
+    sub: "Hampton, NY 11946",
+  },
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: "(555) 123-4567",
+    sub: "Mon–Fri: 8am – 6pm",
+  },
+  {
+    icon: Mail,
+    label: "Email Us",
+    value: "hello@hamptonfamilydental.com",
+    sub: "Replies within 24 hours",
+  },
+  {
+    icon: Clock,
+    label: "Open Today",
+    value: "8:00 AM – 6:00 PM",
+    sub: "Sat: 9am – 2pm · Sun: Closed",
+  },
+];
+
+const services = [
+  "General Dentistry",
+  "Cosmetic Dentistry",
+  "Invisalign",
+  "Teeth Whitening",
+  "Veneers",
+  "Dental Implants",
+  "Pediatric Dentistry",
+  "Emergency Care",
 ];
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", service: "", message: "",
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,187 +72,339 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative section-padding bg-beige-light overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
-      <div className="absolute bottom-[10%] right-[-5%] w-[300px] h-[300px] rounded-full bg-primary/[0.04] blur-[80px] pointer-events-none" />
+    <section
+      id="contact"
+      className="relative py-20 md:py-24 lg:py-28 overflow-hidden bg-navy-dark"
+    >
+      {/* Background image */}
+      <div className="absolute inset-0 opacity-[0.18]">
+        <Image
+          src="/images/clinic_interior_1779858062605.png"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark/85 via-navy/80 to-navy-dark" />
+      </div>
 
-      <div className="max-w-[1200px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-14"
-        >
-          <span className="label-text text-primary mb-4 block">Get In Touch</span>
-          <h2 className="heading-lg text-navy mb-5">
-            Book Your <span className="gradient-text">Appointment</span>
-          </h2>
-          <p className="body-lg text-navy/50 max-w-2xl mx-auto">
-            Ready to experience luxury dental care? We&apos;d love to hear from you.
-            Reach out to schedule your visit.
-          </p>
-        </motion.div>
+      {/* Ambient orbs */}
+      <div className="absolute top-[5%] right-[5%] w-[500px] h-[500px] rounded-full bg-primary/15 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[5%] left-[5%] w-[420px] h-[420px] rounded-full bg-primary/10 blur-[130px] pointer-events-none" />
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Form */}
+      {/* Grain */}
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1340px] mx-auto px-5 md:px-10">
+        {/* Header */}
+        <div className="text-center mb-10 lg:mb-12 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-3 mb-4"
+          >
+            <div className="h-px w-8 bg-gradient-to-r from-transparent to-primary-light" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full backdrop-blur-md bg-white/8 border border-white/15">
+              <Sparkles className="w-3 h-3 text-primary-light" />
+              <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-semibold">
+                Get In Touch
+              </span>
+            </div>
+            <div className="h-px w-8 bg-gradient-to-l from-transparent to-primary-light" />
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-heading text-white"
+            style={{
+              fontSize: "clamp(1.85rem, 4vw, 3.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            Book Your{" "}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-primary-light via-primary to-primary-light bg-clip-text text-transparent italic font-normal">
+                Appointment
+              </span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
+                className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary-light to-transparent origin-left"
+              />
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="text-white/55 mt-4 leading-relaxed text-sm md:text-base"
+          >
+            Ready to experience luxury dental care? Fill out the form below — we
+            reply within hours, not days.
+          </motion.p>
+        </div>
+
+        {/* ─── Main Grid ─── */}
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
+          {/* LEFT — Form (8 cols) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-3"
+            className="lg:col-span-8"
           >
-            <form onSubmit={handleSubmit} className="p-6 md:p-8 rounded-2xl bg-white premium-shadow">
-              <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="contact-name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            <form
+              onSubmit={handleSubmit}
+              className="relative rounded-[24px] overflow-hidden
+                bg-white/[0.04] backdrop-blur-xl border border-white/10
+                p-6 md:p-8 lg:p-10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.5)]"
+            >
+              {/* Decorative orb inside */}
+              <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
+
+              <div className="relative">
+                {/* Mini header inside card */}
+                <div className="flex items-center justify-between mb-6 pb-5 border-b border-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center">
+                      <Calendar className="w-4 h-4 text-primary-light" />
+                    </div>
+                    <div>
+                      <p className="font-heading text-white font-bold text-base leading-none">
+                        Schedule a Visit
+                      </p>
+                      <p className="text-white/50 text-[11px] tracking-wide mt-1">
+                        Free consultation · No obligation
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-emerald-300 text-[10px] tracking-widest uppercase font-semibold">
+                      Replying now
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  {/* Name */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="contact-name"
+                      required
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      placeholder=" "
+                      className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/[0.05] border border-white/10
+                        text-white text-sm outline-none focus:border-primary/50 focus:bg-white/[0.08]
+                        transition-all duration-300 placeholder-transparent"
+                    />
+                    <label
+                      htmlFor="contact-name"
+                      className="absolute left-4 top-2 text-[10px] text-primary-light font-semibold tracking-[0.15em] uppercase
+                        peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
+                        peer-placeholder-shown:normal-case peer-placeholder-shown:text-white/40
+                        peer-placeholder-shown:font-normal
+                        peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.15em]
+                        peer-focus:uppercase peer-focus:text-primary-light peer-focus:font-semibold
+                        transition-all duration-200 pointer-events-none"
+                    >
+                      Full Name
+                    </label>
+                  </div>
+
+                  {/* Email */}
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="contact-email"
+                      required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      placeholder=" "
+                      className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/[0.05] border border-white/10
+                        text-white text-sm outline-none focus:border-primary/50 focus:bg-white/[0.08]
+                        transition-all duration-300 placeholder-transparent"
+                    />
+                    <label
+                      htmlFor="contact-email"
+                      className="absolute left-4 top-2 text-[10px] text-primary-light font-semibold tracking-[0.15em] uppercase
+                        peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
+                        peer-placeholder-shown:normal-case peer-placeholder-shown:text-white/40
+                        peer-placeholder-shown:font-normal
+                        peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.15em]
+                        peer-focus:uppercase peer-focus:text-primary-light peer-focus:font-semibold
+                        transition-all duration-200 pointer-events-none"
+                    >
+                      Email Address
+                    </label>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="relative">
+                    <input
+                      type="tel"
+                      id="contact-phone"
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      placeholder=" "
+                      className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/[0.05] border border-white/10
+                        text-white text-sm outline-none focus:border-primary/50 focus:bg-white/[0.08]
+                        transition-all duration-300 placeholder-transparent"
+                    />
+                    <label
+                      htmlFor="contact-phone"
+                      className="absolute left-4 top-2 text-[10px] text-primary-light font-semibold tracking-[0.15em] uppercase
+                        peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
+                        peer-placeholder-shown:normal-case peer-placeholder-shown:text-white/40
+                        peer-placeholder-shown:font-normal
+                        peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.15em]
+                        peer-focus:uppercase peer-focus:text-primary-light peer-focus:font-semibold
+                        transition-all duration-200 pointer-events-none"
+                    >
+                      Phone Number
+                    </label>
+                  </div>
+
+                  {/* Service */}
+                  <div className="relative">
+                    <select
+                      id="contact-service"
+                      value={formData.service}
+                      onChange={(e) =>
+                        setFormData({ ...formData, service: e.target.value })
+                      }
+                      className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/[0.05] border border-white/10
+                        text-white text-sm outline-none focus:border-primary/50 focus:bg-white/[0.08]
+                        transition-all duration-300 appearance-none cursor-pointer"
+                    >
+                      <option value="" className="bg-navy-dark text-white">
+                        Select a service…
+                      </option>
+                      {services.map((s) => (
+                        <option
+                          key={s}
+                          value={s.toLowerCase()}
+                          className="bg-navy-dark text-white"
+                        >
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                    <label
+                      htmlFor="contact-service"
+                      className="absolute left-4 top-2 text-[10px] text-primary-light font-semibold tracking-[0.15em] uppercase pointer-events-none"
+                    >
+                      Service
+                    </label>
+                    {/* Chevron */}
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none">
+                      ▾
+                    </div>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="relative mb-6">
+                  <textarea
+                    id="contact-message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder=" "
-                    className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-beige-light/50 border border-navy/5
-                      text-navy text-sm outline-none focus:border-primary/30 focus:bg-white
-                      transition-all duration-300 placeholder-transparent"
+                    className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/[0.05] border border-white/10
+                      text-white text-sm outline-none focus:border-primary/50 focus:bg-white/[0.08]
+                      transition-all duration-300 resize-none placeholder-transparent"
                   />
                   <label
-                    htmlFor="contact-name"
-                    className="absolute left-4 top-2 text-[10px] text-navy/40 font-medium tracking-wide uppercase
-                      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
-                      peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-wide
-                      peer-focus:uppercase peer-focus:text-primary transition-all duration-200"
+                    htmlFor="contact-message"
+                    className="absolute left-4 top-2 text-[10px] text-primary-light font-semibold tracking-[0.15em] uppercase
+                      peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
+                      peer-placeholder-shown:normal-case peer-placeholder-shown:text-white/40
+                      peer-placeholder-shown:font-normal
+                      peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-[0.15em]
+                      peer-focus:uppercase peer-focus:text-primary-light peer-focus:font-semibold
+                      transition-all duration-200 pointer-events-none"
                   >
-                    Full Name
+                    Tell us what you need…
                   </label>
                 </div>
 
-                <div className="relative">
-                  <input
-                    type="email"
-                    id="contact-email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder=" "
-                    className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-beige-light/50 border border-navy/5
-                      text-navy text-sm outline-none focus:border-primary/30 focus:bg-white
-                      transition-all duration-300 placeholder-transparent"
-                  />
-                  <label
-                    htmlFor="contact-email"
-                    className="absolute left-4 top-2 text-[10px] text-navy/40 font-medium tracking-wide uppercase
-                      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
-                      peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-wide
-                      peer-focus:uppercase peer-focus:text-primary transition-all duration-200"
+                {/* Submit row */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <button
+                    type="submit"
+                    disabled={submitted}
+                    className="group flex-1 relative inline-flex items-center justify-center gap-3
+                      px-6 py-3.5 rounded-full
+                      bg-gradient-to-r from-primary to-primary-dark text-white font-semibold
+                      shadow-[0_10px_40px_rgba(11,179,182,0.4)]
+                      hover:shadow-[0_15px_50px_rgba(11,179,182,0.55)]
+                      hover:scale-[1.02] active:scale-[0.98]
+                      transition-all duration-300 overflow-hidden disabled:opacity-90"
                   >
-                    Email Address
-                  </label>
-                </div>
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    {submitted ? (
+                      <>
+                        <CheckCircle2 className="relative z-10 w-5 h-5" />
+                        <span className="relative z-10 text-sm tracking-wide">
+                          Message Sent
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="relative z-10 w-4 h-4" />
+                        <span className="relative z-10 text-sm tracking-wide">
+                          Send Message
+                        </span>
+                      </>
+                    )}
+                  </button>
 
-                <div className="relative">
-                  <input
-                    type="tel"
-                    id="contact-phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder=" "
-                    className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-beige-light/50 border border-navy/5
-                      text-navy text-sm outline-none focus:border-primary/30 focus:bg-white
-                      transition-all duration-300 placeholder-transparent"
-                  />
-                  <label
-                    htmlFor="contact-phone"
-                    className="absolute left-4 top-2 text-[10px] text-navy/40 font-medium tracking-wide uppercase
-                      peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
-                      peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-wide
-                      peer-focus:uppercase peer-focus:text-primary transition-all duration-200"
-                  >
-                    Phone Number
-                  </label>
-                </div>
-
-                <div className="relative">
-                  <select
-                    id="contact-service"
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 pt-6 pb-2 rounded-xl bg-beige-light/50 border border-navy/5
-                      text-navy text-sm outline-none focus:border-primary/30 focus:bg-white
-                      transition-all duration-300 appearance-none cursor-pointer"
-                  >
-                    <option value="">Select a Service</option>
-                    <option value="general">General Dentistry</option>
-                    <option value="cosmetic">Cosmetic Dentistry</option>
-                    <option value="invisalign">Invisalign</option>
-                    <option value="whitening">Teeth Whitening</option>
-                    <option value="veneers">Veneers</option>
-                    <option value="implants">Dental Implants</option>
-                    <option value="pediatric">Pediatric Dentistry</option>
-                    <option value="emergency">Emergency Care</option>
-                  </select>
-                  <label
-                    htmlFor="contact-service"
-                    className="absolute left-4 top-2 text-[10px] text-navy/40 font-medium tracking-wide uppercase"
-                  >
-                    Service
-                  </label>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10">
+                    <ShieldCheck className="w-3.5 h-3.5 text-primary-light" />
+                    <span className="text-white/60 text-[11px]">
+                      Your info is private & encrypted
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              <div className="relative mb-6">
-                <textarea
-                  id="contact-message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder=" "
-                  className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-beige-light/50 border border-navy/5
-                    text-navy text-sm outline-none focus:border-primary/30 focus:bg-white
-                    transition-all duration-300 resize-none placeholder-transparent"
-                />
-                <label
-                  htmlFor="contact-message"
-                  className="absolute left-4 top-2 text-[10px] text-navy/40 font-medium tracking-wide uppercase
-                    peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal
-                    peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:tracking-wide
-                    peer-focus:uppercase peer-focus:text-primary transition-all duration-200"
-                >
-                  Your Message
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                disabled={submitted}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-2xl
-                  bg-gradient-to-r from-primary to-primary-dark text-white font-semibold text-base
-                  hover:shadow-[0_0_40px_rgba(11,179,182,0.35)] hover:scale-[1.02]
-                  active:scale-[0.98] transition-all duration-300 disabled:opacity-80"
-              >
-                {submitted ? (
-                  <>
-                    <CheckCircle2 className="w-5 h-5" />
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </>
-                )}
-              </button>
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* RIGHT — Contact info (4 cols) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-2 space-y-5"
+            className="lg:col-span-4 space-y-3"
           >
             {contactInfo.map((info, i) => (
               <motion.div
@@ -212,40 +412,85 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className="group p-5 rounded-2xl bg-white luxury-border
-                  hover:premium-shadow hover:border-primary/10 transition-all duration-500"
+                transition={{ delay: 0.3 + i * 0.08 }}
+                className="group rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10
+                  hover:bg-white/[0.08] hover:border-primary/30
+                  transition-all duration-500 p-4"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0
-                    group-hover:bg-primary/15 transition-colors duration-300">
-                    <info.icon className="w-4 h-4 text-primary" />
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30
+                    flex items-center justify-center shrink-0
+                    group-hover:bg-primary group-hover:border-primary
+                    transition-all duration-500">
+                    <info.icon className="w-4 h-4 text-primary-light group-hover:text-white transition-colors duration-500" />
                   </div>
-                  <div>
-                    <p className="label-text text-navy/30 text-[10px] mb-1">{info.label}</p>
-                    <p className="font-semibold text-navy text-sm">{info.value}</p>
-                    <p className="text-navy/40 text-xs mt-0.5">{info.sub}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white/45 text-[10px] tracking-[0.2em] uppercase font-semibold mb-1">
+                      {info.label}
+                    </p>
+                    <p className="font-semibold text-white text-sm leading-tight">
+                      {info.value}
+                    </p>
+                    <p className="text-white/50 text-[11px] mt-1">{info.sub}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
 
             {/* Emergency CTA */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-white">
-              <p className="font-heading text-lg font-bold mb-1">Dental Emergency?</p>
-              <p className="text-white/70 text-sm mb-3">
-                Don&apos;t wait — call us immediately for same-day emergency care.
-              </p>
-              <a
-                href="tel:5551234567"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
-                  bg-white/20 text-white text-sm font-semibold
-                  hover:bg-white/30 transition-colors duration-200"
-              >
-                <Phone className="w-4 h-4" />
-                (555) 123-4567
-              </a>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+              className="relative overflow-hidden rounded-2xl p-5
+                bg-gradient-to-br from-primary via-primary to-primary-dark
+                shadow-[0_15px_40px_-15px_rgba(11,179,182,0.5)]"
+            >
+              {/* Decorative orb */}
+              <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-white/15 blur-3xl pointer-events-none" />
+              {/* Dot pattern */}
+              <div
+                className="absolute inset-0 opacity-[0.1] pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+                  backgroundSize: "16px 16px",
+                }}
+              />
+
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                    <AlertCircle className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-white/85 text-[10px] tracking-[0.25em] uppercase font-bold">
+                    Dental Emergency
+                  </span>
+                </div>
+                <p className="font-heading text-white text-lg font-bold leading-tight mb-2">
+                  Don&apos;t wait — call now.
+                </p>
+                <p className="text-white/75 text-[12px] leading-relaxed mb-4">
+                  Same-day appointments available for urgent care.
+                </p>
+                <a
+                  href="tel:+15551234567"
+                  className="group flex items-center justify-between gap-2 pl-4 pr-2 py-2 rounded-full
+                    bg-white text-primary-dark font-semibold
+                    hover:scale-[1.02] active:scale-[0.98]
+                    transition-all duration-300"
+                >
+                  <span className="flex items-center gap-2 text-sm">
+                    <Phone className="w-4 h-4" />
+                    (555) 123-4567
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center">
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
