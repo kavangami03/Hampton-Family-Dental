@@ -29,6 +29,9 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
     // so the section's top sits just below the header instead of behind it.
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      // Skip clicks inside overlays that manage their own navigation
+      // (e.g. the mobile menu unlocks the body scroll first, then scrolls).
+      if (target.closest("[data-skip-smooth-scroll]")) return;
       const anchor = target.closest("a[href]") as HTMLAnchorElement | null;
       if (!anchor) return;
 

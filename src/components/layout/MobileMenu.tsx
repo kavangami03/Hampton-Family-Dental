@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,9 +16,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-// Lenis instance exposed by SmoothScrollProvider — pause smooth scroll
-// alongside locking native body scroll so the page is fully frozen.
-type LenisLike = { stop: () => void; start: () => void };
+// Lenis instance exposed by SmoothScrollProvider — used to scroll smoothly
+// to the target section when a menu link is clicked.
+type LenisLike = {
+  scrollTo: (
+    target: HTMLElement | string | number,
+    options?: { offset?: number; duration?: number }
+  ) => void;
+};
 
 interface MobileMenuProps {
   links: { label: string; href: string }[];
@@ -80,41 +84,38 @@ export default function MobileMenu({
   activeSection = "home",
   onClose,
 }: MobileMenuProps) {
-  // ─── Lock background scroll while the menu is open ───
-  useEffect(() => {
-    const body = document.body;
-    const html = document.documentElement;
-    const scrollY = window.scrollY;
+  // Centralized nav-link handler — closes the menu and smoothly scrolls to
+  // the target section. The global SmoothScrollProvider handler is told to
+  // ignore clicks inside this menu via the data-skip-smooth-scroll marker
+  // so we never get racing handlers.
+  const handleNavigate = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-    // Save current styles
-    const prevBodyOverflow = body.style.overflow;
-    const prevBodyPosition = body.style.position;
-    const prevBodyTop = body.style.top;
-    const prevBodyWidth = body.style.width;
-    const prevHtmlOverflow = html.style.overflow;
+    if (!href.startsWith("#")) {
+      onClose();
+      return;
+    }
 
-    // Pause Lenis virtual scroll
-    const lenis = (window as unknown as { __lenis?: LenisLike }).__lenis;
-    lenis?.stop();
+    const id = href.slice(1);
+    onClose();
 
-    // Freeze the page in place — keeps scroll position visible without jumping
-    body.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.width = "100%";
-    html.style.overflow = "hidden";
-
-    return () => {
-      body.style.overflow = prevBodyOverflow;
-      body.style.position = prevBodyPosition;
-      body.style.top = prevBodyTop;
-      body.style.width = prevBodyWidth;
-      html.style.overflow = prevHtmlOverflow;
-      // Restore the original scroll position
-      window.scrollTo(0, scrollY);
-      lenis?.start();
-    };
-  }, []);
+    // Run the scroll on the next frame so the menu starts its exit animation
+    // before we move the page underneath it.
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const lenis = (window as unknown as { __lenis?: LenisLike }).__lenis;
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -72, duration: 1.4 });
+      } else {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      if (window.history.replaceState) {
+        window.history.replaceState(null, "", href);
+      }
+    });
+  };
 
   return (
     <motion.div
@@ -123,6 +124,7 @@ export default function MobileMenu({
       initial="hidden"
       animate="visible"
       exit="exit"
+      data-skip-smooth-scroll
     >
       {/* Backdrop */}
       <motion.div
@@ -214,7 +216,7 @@ export default function MobileMenu({
               >
                 <Link
                   href={link.href}
-                  onClick={onClose}
+                  onClick={(e) => handleNavigate(e, link.href)}
                   className="group flex items-center justify-between py-2.5
                     border-b border-white/8 transition-colors"
                 >
@@ -314,7 +316,7 @@ export default function MobileMenu({
           <motion.div custom={3} variants={cardVariants} className="pt-1">
             <Link
               href="#contact"
-              onClick={onClose}
+              onClick={(e) => handleNavigate(e, "#contact")}
               className="group relative flex items-center justify-between gap-2 w-full
                 pl-5 pr-2 py-3 rounded-full
                 bg-gradient-to-r from-primary to-primary-dark text-white
