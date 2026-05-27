@@ -14,6 +14,8 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
     });
 
     lenisRef.current = lenis;
+    // Expose Lenis globally so overlays (mobile menu, modals) can pause/resume scroll
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -71,6 +73,7 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
 
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       lenis.destroy();
     };
   }, []);

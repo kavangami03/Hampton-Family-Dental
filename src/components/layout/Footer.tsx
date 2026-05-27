@@ -105,7 +105,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 lg:items-end">
               <Link
                 href="#contact"
-                className="group inline-flex items-center gap-3 pl-6 pr-2 py-2.5 rounded-full
+                className="group inline-flex justify-between items-center gap-3 pl-6 pr-2 py-2.5 rounded-full
                   bg-gradient-to-r from-primary to-primary-dark text-white font-semibold
                   shadow-[0_10px_40px_rgba(11,179,182,0.4)]
                   hover:shadow-[0_15px_55px_rgba(11,179,182,0.55)]

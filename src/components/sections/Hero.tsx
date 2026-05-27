@@ -7,9 +7,6 @@ import {
   Star,
   ChevronDown,
   Play,
-  Volume2,
-  VolumeX,
-  Calendar,
   ArrowUpRight,
   Sparkles,
   Award,
@@ -35,7 +32,6 @@ const avatars = [
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [muted, setMuted] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -72,12 +68,6 @@ export default function Hero() {
     };
   }, []);
 
-  const toggleMute = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
-  };
 
   return (
     <section
@@ -208,22 +198,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* ───────── Mute toggle ───────── */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.6 }}
-        onClick={toggleMute}
-        aria-label={muted ? "Unmute video" : "Mute video"}
-        className="absolute top-32 right-6 md:hidden z-30
-          w-11 h-11 rounded-full backdrop-blur-md bg-white/10 border border-white/20
-          flex items-center justify-center text-white
-          hover:bg-white/20 active:scale-95 transition-all duration-300"
-      >
-        {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-      </motion.button>
-
-      {/* ───────── Main Content ───────── */}
+{/* ───────── Main Content ───────── */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 md:px-12 lg:px-16
@@ -375,17 +350,6 @@ export default function Hero() {
             <span>Explore Services</span>
           </a>
 
-          {/* Desktop mute toggle inline */}
-          <button
-            onClick={toggleMute}
-            aria-label={muted ? "Unmute video" : "Mute video"}
-            className="hidden md:flex ml-2 w-11 h-11 rounded-full backdrop-blur-md bg-white/8 border border-white/15
-              items-center justify-center text-white/70
-              hover:bg-white/15 hover:text-white hover:scale-105 active:scale-95
-              transition-all duration-300"
-          >
-            {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-primary-light" />}
-          </button>
         </motion.div>
       </motion.div>
 

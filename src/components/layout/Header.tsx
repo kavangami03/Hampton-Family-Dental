@@ -121,22 +121,16 @@ export default function Header() {
         </motion.div>
 
         {/* ────────── Main Bar ────────── */}
-        <motion.div
-          initial={false}
-          animate={{
-            backgroundColor: isScrolled
-              ? "rgba(255, 255, 255, 0.92)"
-              : "rgba(26, 31, 61, 0)",
-            backdropFilter: isScrolled ? "blur(20px)" : "blur(10px)",
-            borderBottomColor: isScrolled
-              ? "rgba(40, 47, 90, 0.06)"
-              : "rgba(255, 255, 255, 0.08)",
-            boxShadow: isScrolled
-              ? "0 2px 30px rgba(40, 47, 90, 0.05)"
-              : "0 0 0 rgba(0,0,0,0)",
-          }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="border-b"
+        {/* Static backdrop-blur with CSS transitions on cheap properties only.
+            Previously animated backdrop-filter via framer-motion per-frame —
+            backdrop-filter is one of the most expensive CSS properties to
+            interpolate, which caused noticeable lag. */}
+        <div
+          className={`border-b backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-500 ease-out
+            ${isScrolled
+              ? "bg-white/[0.92] border-navy/[0.06] shadow-[0_2px_30px_rgba(40,47,90,0.05)]"
+              : "bg-transparent border-white/[0.08] shadow-none"
+            }`}
         >
           <div className="max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-[68px] md:h-[80px]">
             {/* ──────── Logo ──────── */}
@@ -297,7 +291,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.header>
 
       {/* ────────── Mobile Menu ────────── */}

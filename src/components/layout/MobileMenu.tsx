@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,6 +16,10 @@ import {
   Globe,
   MessageCircle,
 } from "lucide-react";
+
+// Lenis instance exposed by SmoothScrollProvider — pause smooth scroll
+// alongside locking native body scroll so the page is fully frozen.
+type LenisLike = { stop: () => void; start: () => void };
 
 interface MobileMenuProps {
   links: { label: string; href: string }[];
@@ -75,6 +80,42 @@ export default function MobileMenu({
   activeSection = "home",
   onClose,
 }: MobileMenuProps) {
+  // ─── Lock background scroll while the menu is open ───
+  useEffect(() => {
+    const body = document.body;
+    const html = document.documentElement;
+    const scrollY = window.scrollY;
+
+    // Save current styles
+    const prevBodyOverflow = body.style.overflow;
+    const prevBodyPosition = body.style.position;
+    const prevBodyTop = body.style.top;
+    const prevBodyWidth = body.style.width;
+    const prevHtmlOverflow = html.style.overflow;
+
+    // Pause Lenis virtual scroll
+    const lenis = (window as unknown as { __lenis?: LenisLike }).__lenis;
+    lenis?.stop();
+
+    // Freeze the page in place — keeps scroll position visible without jumping
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    html.style.overflow = "hidden";
+
+    return () => {
+      body.style.overflow = prevBodyOverflow;
+      body.style.position = prevBodyPosition;
+      body.style.top = prevBodyTop;
+      body.style.width = prevBodyWidth;
+      html.style.overflow = prevHtmlOverflow;
+      // Restore the original scroll position
+      window.scrollTo(0, scrollY);
+      lenis?.start();
+    };
+  }, []);
+
   return (
     <motion.div
       className="fixed inset-0 z-[60] lg:hidden"
@@ -89,17 +130,27 @@ export default function MobileMenu({
         onClick={onClose}
       />
 
-      {/* Panel */}
+      {/* Panel — promoted to its own compositing layer so the slide-in transform
+          doesn't force a re-rasterization of the heavy blurred orbs inside. */}
       <motion.div
         variants={panelVariants}
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
         className="absolute right-0 top-0 bottom-0 w-[92%] max-w-[420px]
           bg-gradient-to-br from-navy-dark via-navy to-navy-dark
           shadow-[-30px_0_80px_rgba(0,0,0,0.4)]
           flex flex-col overflow-hidden"
       >
-        {/* Ambient orbs */}
-        <div className="absolute top-[10%] -right-20 w-72 h-72 rounded-full bg-primary/20 blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-[15%] -left-20 w-64 h-64 rounded-full bg-primary/10 blur-[90px] pointer-events-none" />
+        {/* Ambient orbs — GPU-promoted so the blur is rasterized once, not per frame.
+            Reduced blur radius (100→70px) for a meaningful perf win at virtually
+            identical visual cost. */}
+        <div
+          style={{ transform: "translateZ(0)" }}
+          className="absolute top-[10%] -right-20 w-72 h-72 rounded-full bg-primary/20 blur-[70px] pointer-events-none"
+        />
+        <div
+          style={{ transform: "translateZ(0)" }}
+          className="absolute bottom-[15%] -left-20 w-64 h-64 rounded-full bg-primary/10 blur-[60px] pointer-events-none"
+        />
 
         {/* Grain texture */}
         <div
