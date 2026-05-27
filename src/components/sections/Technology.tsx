@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -97,10 +97,36 @@ const trustBadges = [
 
 export default function Technology() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const active = technologies[activeIndex];
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Track visibility — only auto-rotate when the section is in view.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate every 5s while visible. The `activeIndex` dep restarts the
+  // timer whenever the user manually picks a tab so the next tech won't
+  // appear immediately after a manual click.
+  useEffect(() => {
+    if (!isVisible) return;
+    const id = setInterval(() => {
+      setActiveIndex((p) => (p + 1) % technologies.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [isVisible, activeIndex]);
 
   return (
     <section
+      ref={sectionRef}
       id="technology"
       className="relative py-16 md:py-20 lg:py-24 bg-beige-light overflow-hidden"
     >

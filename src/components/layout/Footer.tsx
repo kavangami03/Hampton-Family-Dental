@@ -297,42 +297,42 @@ export default function Footer() {
         <div className="h-px bg-white/8" />
 
         {/* ─── Bottom bar ─── */}
-        <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-xs">
+        <div className="py-6 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 text-center lg:text-left">
+          <p className="text-white/30 text-xs order-1">
             © {new Date().getFullYear()} Hampton Family Dental. All rights
             reserved.
           </p>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs order-3 lg:order-2">
             <Link
               href="#"
-              className="text-white/35 hover:text-primary-light transition-colors"
+              className="text-white/35 hover:text-primary-light transition-colors whitespace-nowrap"
             >
               Privacy Policy
             </Link>
             <span className="w-1 h-1 rounded-full bg-white/15" />
             <Link
               href="#"
-              className="text-white/35 hover:text-primary-light transition-colors"
+              className="text-white/35 hover:text-primary-light transition-colors whitespace-nowrap"
             >
               Terms of Service
             </Link>
             <span className="w-1 h-1 rounded-full bg-white/15" />
             <Link
               href="#"
-              className="text-white/35 hover:text-primary-light transition-colors"
+              className="text-white/35 hover:text-primary-light transition-colors whitespace-nowrap"
             >
               Accessibility
             </Link>
           </div>
 
-          <p className="text-white/30 text-xs flex items-center gap-1.5">
-            Designed &amp; developed by{" "}
+          <p className="text-white/30 text-xs inline-flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 order-2 lg:order-3">
+            <span>Designed &amp; developed by</span>
             <a
               href="https://softqubes.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-primary-light font-semibold hover:text-white transition-colors"
+              className="inline-flex items-center gap-1 text-primary-light font-semibold hover:text-white transition-colors whitespace-nowrap"
             >
               Softqubes Technologies
               <ArrowUpRight className="w-3 h-3" />
@@ -341,18 +341,18 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Back to top button */}
+      {/* Back to top button — hidden on small screens to avoid overlapping
+          the footer credit text; shown from md+ when there's room. */}
       <a
         href="#home"
         aria-label="Back to top"
-        className="group fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full
+        className="group hidden md:flex fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full
           bg-white/8 backdrop-blur-md border border-white/15 text-white
           hover:bg-primary hover:border-primary
-          flex items-center justify-center
+          items-center justify-center
           shadow-[0_10px_30px_rgba(0,0,0,0.3)]
           hover:scale-105 active:scale-95 transition-all duration-300
-          opacity-0 hover:opacity-100 focus:opacity-100
-          motion-safe:[@media(min-width:768px)]:opacity-70"
+          opacity-70 hover:opacity-100 focus:opacity-100"
       >
         <ArrowUp className="w-4 h-4" />
       </a>
