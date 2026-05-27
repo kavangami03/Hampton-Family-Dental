@@ -17,30 +17,39 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const contactInfo = [
+const contactInfo: {
+  icon: typeof MapPin;
+  label: string;
+  value: string;
+  sub: string;
+  href?: string;
+}[] = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "123 Hampton Boulevard, Suite 200",
-    sub: "Hampton, NY 11946",
+    value: "283 Second Street Pike, Suite 140",
+    sub: "Southampton, PA 18966",
+    href: "https://www.google.com/maps/search/?api=1&query=283+Second+Street+Pike,+Suite+140,+Southampton,+PA+18966",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "(555) 123-4567",
-    sub: "Mon–Fri: 8am – 6pm",
+    value: "(215) 357-2224",
+    sub: "Mon · 8am – 6pm",
+    href: "tel:+12153572224",
   },
   {
     icon: Mail,
     label: "Email Us",
     value: "hello@hamptonfamilydental.com",
     sub: "Replies within 24 hours",
+    href: "mailto:hello@hamptonfamilydental.com",
   },
   {
     icon: Clock,
-    label: "Open Today",
-    value: "8:00 AM – 6:00 PM",
-    sub: "Sat: 9am – 2pm · Sun: Closed",
+    label: "Hours",
+    value: "Mon–Thu Open",
+    sub: "Fri–Sun · Closed",
   },
 ];
 
@@ -406,36 +415,49 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-4 space-y-3"
           >
-            {contactInfo.map((info, i) => (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.08 }}
-                className="group rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10
-                  hover:bg-white/[0.08] hover:border-primary/30
-                  transition-all duration-500 p-4"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30
-                    flex items-center justify-center shrink-0
-                    group-hover:bg-primary group-hover:border-primary
-                    transition-all duration-500">
-                    <info.icon className="w-4 h-4 text-primary-light group-hover:text-white transition-colors duration-500" />
+            {contactInfo.map((info, i) => {
+              const Tag = info.href ? motion.a : motion.div;
+              const linkProps = info.href
+                ? {
+                    href: info.href,
+                    target: info.href.startsWith("http") ? "_blank" : undefined,
+                    rel: info.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined,
+                  }
+                : {};
+              return (
+                <Tag
+                  key={info.label}
+                  {...linkProps}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.08 }}
+                  className="group block rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10
+                    hover:bg-white/[0.08] hover:border-primary/30
+                    transition-all duration-500 p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/15 border border-primary/30
+                      flex items-center justify-center shrink-0
+                      group-hover:bg-primary group-hover:border-primary
+                      transition-all duration-500">
+                      <info.icon className="w-4 h-4 text-primary-light group-hover:text-white transition-colors duration-500" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-white/45 text-[10px] tracking-[0.2em] uppercase font-semibold mb-1">
+                        {info.label}
+                      </p>
+                      <p className="font-semibold text-white text-sm leading-tight">
+                        {info.value}
+                      </p>
+                      <p className="text-white/50 text-[11px] mt-1">{info.sub}</p>
+                    </div>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-white/45 text-[10px] tracking-[0.2em] uppercase font-semibold mb-1">
-                      {info.label}
-                    </p>
-                    <p className="font-semibold text-white text-sm leading-tight">
-                      {info.value}
-                    </p>
-                    <p className="text-white/50 text-[11px] mt-1">{info.sub}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </Tag>
+              );
+            })}
 
             {/* Emergency CTA */}
             <motion.div
@@ -483,7 +505,7 @@ export default function Contact() {
                 >
                   <span className="flex items-center gap-2 text-sm">
                     <Phone className="w-4 h-4" />
-                    (555) 123-4567
+                    (215) 357-2224
                   </span>
                   <span className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center">
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

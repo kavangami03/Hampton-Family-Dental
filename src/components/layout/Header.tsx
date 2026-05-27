@@ -115,20 +115,25 @@ export default function Header() {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 h-10 flex items-center justify-between text-[11px] text-white/70">
               <div className="flex items-center gap-6">
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+12153572224"
                   className="flex items-center gap-1.5 hover:text-primary-light transition-colors"
                 >
                   <Phone className="w-3 h-3" />
-                  <span className="tracking-wide">(555) 123-4567</span>
+                  <span className="tracking-wide">(215) 357-2224</span>
                 </a>
-                <span className="flex items-center gap-1.5">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=283+Second+Street+Pike,+Suite+140,+Southampton,+PA+18966"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-primary-light transition-colors"
+                >
                   <MapPin className="w-3 h-3" />
-                  <span className="tracking-wide">123 Smile Ave, Hampton</span>
-                </span>
+                  <span className="tracking-wide">283 Second Street Pike, Southampton, PA</span>
+                </a>
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3 h-3" />
                   <span className="tracking-wide">
-                    Mon–Sat · 8:00 AM – 6:00 PM
+                    Mon–Thu · Fri–Sun Closed
                   </span>
                 </span>
               </div>
@@ -249,7 +254,7 @@ export default function Header() {
             <div className="flex items-center gap-2 sm:gap-3">
               {/* Phone (desktop, secondary visibility) */}
               <a
-                href="tel:+15551234567"
+                href="tel:+12153572224"
                 className={`hidden xl:flex items-center gap-2 px-3 py-2 rounded-full transition-colors duration-300 ${
                   isScrolled
                     ? "text-navy/70 hover:text-primary hover:bg-primary/5"
@@ -259,7 +264,7 @@ export default function Header() {
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span className="text-xs font-semibold tracking-wider">
-                  (555) 123-4567
+                  (215) 357-2224
                 </span>
               </a>
 

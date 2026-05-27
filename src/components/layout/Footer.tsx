@@ -11,6 +11,7 @@ import {
   ArrowUp,
   Send,
   Sparkles,
+  Clock,
 } from "lucide-react";
 
 import {
@@ -43,7 +44,7 @@ const services = [
 ];
 
 const socials = [
-  { icon: FacebookIcon, href: "https://facebook.com", label: "Facebook" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/BrennerDentalGroup", label: "Facebook" },
   { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
   { icon: TwitterIcon, href: "https://x.com", label: "X / Twitter" },
   { icon: YouTubeIcon, href: "https://youtube.com", label: "YouTube" },
@@ -123,11 +124,11 @@ export default function Footer() {
                 </span>
               </Link>
               <a
-                href="tel:+15551234567"
+                href="tel:+(215) 357-2224"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 text-white text-sm hover:bg-white/[0.08] hover:border-primary/30 transition-all"
               >
                 <Phone className="w-3.5 h-3.5 text-primary-light" />
-                <span className="font-semibold">(555) 123-4567</span>
+                <span className="font-semibold">(215) 357-2224</span>
               </a>
             </div>
           </div>
@@ -156,12 +157,17 @@ export default function Footer() {
 
             {/* Contact mini-cards */}
             <div className="space-y-2.5 mb-6">
-              <div className="flex items-center gap-3 text-white/55 text-sm">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=283+Second+Street+Pike,+Suite+140,+Southampton,+PA+18966"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-white/55 text-sm hover:text-primary-light transition-colors group"
+              >
                 <div className="w-7 h-7 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shrink-0">
                   <MapPin className="w-3 h-3 text-primary-light" />
                 </div>
-                <span>123 Hampton Boulevard, Suite 200, NY 11946</span>
-              </div>
+                <span>283 Second Street Pike, Suite 140, Southampton, PA 18966</span>
+              </a>
               <a
                 href="mailto:hello@hamptonfamilydental.com"
                 className="flex items-center gap-3 text-white/55 text-sm hover:text-primary-light transition-colors group"
@@ -273,11 +279,14 @@ export default function Footer() {
             </form>
 
             {/* Hours card */}
-            <div className="rounded-2xl bg-white/[0.04] border border-white/10 p-3.5">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-white/45 text-[10px] tracking-[0.2em] uppercase font-semibold">
-                  Open Today
-                </p>
+            <div className="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
+              <div className="flex items-center justify-between mb-3 pb-3 border-b border-white/8">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-primary-light" />
+                  <p className="text-white/85 text-[10px] tracking-[0.25em] uppercase font-semibold">
+                    Office Hours
+                  </p>
+                </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-emerald-300 text-[10px] tracking-widest uppercase font-semibold">
@@ -285,12 +294,40 @@ export default function Footer() {
                   </span>
                 </div>
               </div>
-              <p className="text-white font-semibold text-sm">
-                8:00 AM – 6:00 PM
-              </p>
-              <p className="text-white/45 text-[11px] mt-0.5">
-                Mon–Fri · Sat 9–2 · Sun closed
-              </p>
+
+              {/* Day-by-day list */}
+              <ul className="space-y-1.5 text-[12px]">
+                {[
+                  { day: "Mon", time: "8:00 AM – 6:00 PM", open: true },
+                  { day: "Tue", time: "8:00 AM – 4:00 PM", open: true },
+                  { day: "Wed", time: "8:00 AM – 12:00 PM", open: true },
+                  { day: "Thu", time: "8:00 AM – 4:00 PM", open: true },
+                  { day: "Fri", time: "Closed", open: false },
+                  { day: "Sat", time: "Closed", open: false },
+                  { day: "Sun", time: "Closed", open: false },
+                ].map((row) => (
+                  <li
+                    key={row.day}
+                    className="flex items-center justify-between gap-3"
+                  >
+                    <span
+                      className={`tracking-widest uppercase text-[10px] font-semibold ${
+                        row.open ? "text-white/80" : "text-white/30"
+                      }`}
+                    >
+                      {row.day}
+                    </span>
+                    <span className="flex-1 h-px border-b border-dashed border-white/8" />
+                    <span
+                      className={`tabular-nums font-semibold ${
+                        row.open ? "text-white" : "text-white/40 italic"
+                      }`}
+                    >
+                      {row.time}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

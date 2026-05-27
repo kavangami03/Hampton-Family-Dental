@@ -57,7 +57,7 @@ const faqs: { category: Category; q: string; a: string }[] = [
   {
     category: "Booking",
     q: "How do I schedule an appointment?",
-    a: "You can schedule by calling us at (555) 123-4567, filling out the contact form, or using our online booking system. We offer flexible scheduling — including early-morning and evening appointments — to fit your routine.",
+    a: "You can schedule by calling us at (215) 357-2224, filling out the contact form, or using our online booking system. We offer flexible scheduling — including early-morning and evening appointments — to fit your routine.",
   },
 ];
 

@@ -146,14 +146,14 @@ export default function CTABanner() {
               </a>
 
               <a
-                href="tel:+15551234567"
+                href="tel:+12153572224"
                 className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-full
                   backdrop-blur-md bg-white/8 border border-white/25 text-white text-sm font-semibold
                   hover:bg-white/15 hover:border-white/40 hover:scale-[1.03] active:scale-[0.98]
                   transition-all duration-300"
               >
                 <Phone className="w-4 h-4 text-primary-light" />
-                <span>(555) 123-4567</span>
+                <span>(215) 357-2224</span>
               </a>
             </div>
           </motion.div>

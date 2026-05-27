@@ -258,7 +258,7 @@ export default function MobileMenu({
         {/* ────────── Info cards ────────── */}
         <div className="relative z-10 px-6 pt-2 pb-5 space-y-2 shrink-0">
           <motion.a
-            href="tel:+15551234567"
+            href="tel:+12153572224"
             custom={0}
             variants={cardVariants}
             className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.04] border border-white/10
@@ -272,7 +272,7 @@ export default function MobileMenu({
                 Call Us
               </p>
               <p className="text-white font-semibold text-sm">
-                (555) 123-4567
+                (215) 357-2224
               </p>
             </div>
           </motion.a>
@@ -290,16 +290,20 @@ export default function MobileMenu({
                 Hours
               </p>
               <p className="text-white text-xs font-semibold mt-0.5 leading-tight">
-                Mon–Sat
+                Mon–Thu
                 <br />
-                8AM – 6PM
+                Fri–Sun Closed
               </p>
             </motion.div>
 
-            <motion.div
+            <motion.a
               custom={2}
               variants={cardVariants}
-              className="p-3 rounded-2xl bg-white/[0.04] border border-white/10"
+              href="https://www.google.com/maps/search/?api=1&query=283+Second+Street+Pike,+Suite+140,+Southampton,+PA+18966"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-3 rounded-2xl bg-white/[0.04] border border-white/10
+                hover:bg-white/[0.08] hover:border-primary/30 transition-all duration-300"
             >
               <div className="w-9 h-9 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center mb-2">
                 <MapPin className="w-3.5 h-3.5 text-primary-light" />
@@ -308,11 +312,11 @@ export default function MobileMenu({
                 Visit
               </p>
               <p className="text-white text-xs font-semibold mt-0.5 leading-tight">
-                123 Smile Ave,
+                283 Second Street Pike,
                 <br />
-                Hampton
+                Southampton, PA
               </p>
-            </motion.div>
+            </motion.a>
           </div>
 
           {/* CTA */}
@@ -351,7 +355,7 @@ export default function MobileMenu({
             </p>
             <div className="flex items-center gap-2">
               {[
-                { Icon: FacebookIcon, href: "https://facebook.com", label: "Facebook" },
+                { Icon: FacebookIcon, href: "https://www.facebook.com/BrennerDentalGroup", label: "Facebook" },
                 { Icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
                 { Icon: TwitterIcon, href: "https://x.com", label: "X / Twitter" },
                 { Icon: YouTubeIcon, href: "https://youtube.com", label: "YouTube" },
