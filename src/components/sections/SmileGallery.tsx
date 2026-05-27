@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -10,15 +10,15 @@ import {
   Quote,
   Sparkles,
   ArrowUpRight,
-  MoveHorizontal,
   Clock,
   Award,
+  BadgeCheck,
+  Heart,
 } from "lucide-react";
 
 const transformations = [
   {
-    before: "/images/smile_before_after_1779858325738.png",
-    after: "/images/cosmetic_smile_1779858128482.png",
+    image: "/images/cosmetic_smile_1779858128482.png",
     patient: "Sarah M.",
     age: 34,
     treatment: "Porcelain Veneers",
@@ -26,10 +26,10 @@ const transformations = [
     sessions: 2,
     quote:
       "I can't stop smiling. The transformation is beyond what I imagined — it's like a brand new me.",
+    journey: ["Consultation", "Smile Design", "Crafting", "Reveal"],
   },
   {
-    before: "/images/service_general_1779858374972.png",
-    after: "/images/service_veneers_1779858461216.png",
+    image: "/images/smile_before_after_1779858325738.png",
     patient: "Michael R.",
     age: 41,
     treatment: "Invisalign + Whitening",
@@ -37,10 +37,10 @@ const transformations = [
     sessions: 8,
     quote:
       "The entire process was comfortable. The results? Incredible. I finally feel confident in every photo.",
+    journey: ["3D Scan", "Aligners", "Whitening", "Polish"],
   },
   {
-    before: "/images/family_dental_1779858082600.png",
-    after: "/images/hero_portrait_1779858045495.png",
+    image: "/images/patient_testimonial_2_1779858279502.png",
     patient: "Jennifer L.",
     age: 29,
     treatment: "Cosmetic Makeover",
@@ -48,106 +48,9 @@ const transformations = [
     sessions: 3,
     quote:
       "Hampton Family Dental gave me the confidence to smile again. I keep catching myself smiling for no reason.",
+    journey: ["Plan", "Prep", "Craft", "Reveal"],
   },
 ];
-
-function BeforeAfterSlider({
-  before,
-  after,
-}: {
-  before: string;
-  after: string;
-}) {
-  const [sliderPos, setSliderPos] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    setSliderPos((x / rect.width) * 100);
-  };
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full h-full rounded-2xl overflow-hidden
-        cursor-ew-resize select-none"
-      onMouseMove={(e) => handleMove(e.clientX)}
-      onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-    >
-      {/* AFTER image (full) */}
-      <Image
-        src={after}
-        alt="After treatment"
-        fill
-        className="object-cover"
-        sizes="(max-width: 1024px) 100vw, 700px"
-        priority
-      />
-
-      {/* BEFORE image (clipped) */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
-      >
-        <Image
-          src={before}
-          alt="Before treatment"
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 700px"
-        />
-      </div>
-
-      {/* Vignettes */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-navy/40 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
-
-      {/* Slider line + handle */}
-      <div
-        className="absolute top-0 bottom-0 z-20 pointer-events-none"
-        style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
-      >
-        <div className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/60 via-white to-white/60" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 rounded-full bg-white/30 animate-ping opacity-70" style={{ animationDuration: "2.5s" }} />
-          <div className="relative w-12 h-12 rounded-full bg-white shadow-[0_6px_24px_rgba(11,179,182,0.35)]
-            flex items-center justify-center border-2 border-white">
-            <div className="absolute inset-1 rounded-full border border-primary/30" />
-            <MoveHorizontal className="w-4 h-4 text-navy" strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-
-      {/* BEFORE label */}
-      <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full
-        backdrop-blur-xl bg-navy-dark/55 border border-white/15 z-10">
-        <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-        <span className="text-white text-[9px] tracking-[0.25em] uppercase font-semibold">
-          Before
-        </span>
-      </div>
-
-      {/* AFTER label */}
-      <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full
-        backdrop-blur-xl bg-primary/65 border border-white/30 z-10">
-        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-        <span className="text-white text-[9px] tracking-[0.25em] uppercase font-semibold">
-          After
-        </span>
-      </div>
-
-      {/* Drag hint */}
-      <div className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full backdrop-blur-md bg-white/15 border border-white/20">
-        <MoveHorizontal className="w-2.5 h-2.5 text-white" />
-        <span className="text-white text-[9px] tracking-widest uppercase font-semibold">
-          Drag
-        </span>
-      </div>
-    </div>
-  );
-}
 
 export default function SmileGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -180,7 +83,7 @@ export default function SmileGallery() {
       />
 
       <div className="relative z-10 max-w-[1300px] mx-auto px-5 md:px-10">
-        {/* Section header — compact */}
+        {/* Header */}
         <div className="text-center mb-10 lg:mb-12 max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -211,10 +114,10 @@ export default function SmileGallery() {
               letterSpacing: "-0.03em",
             }}
           >
-            Smile{" "}
+            Smiles &{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-br from-primary via-primary-dark to-primary bg-clip-text text-transparent italic font-normal">
-                Transformations
+                Their Stories
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -239,38 +142,118 @@ export default function SmileGallery() {
             shadow-[0_30px_80px_-30px_rgba(40,47,90,0.2)]"
         >
           <div className="grid lg:grid-cols-12 gap-3 md:gap-4 lg:gap-5">
-            {/* LEFT — Slider (7 cols, landscape 4:3) */}
+            {/* ─── LEFT — Patient Portrait (7 cols) ─── */}
             <div className="lg:col-span-7 relative">
-              <div className="aspect-[4/3] relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden
+                shadow-[inset_0_0_0_1px_rgba(40,47,90,0.06)]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
-                    initial={{ opacity: 0, scale: 0.99 }}
+                    initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.99 }}
-                    transition={{ duration: 0.4 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.55 }}
                     className="absolute inset-0"
                   >
-                    <BeforeAfterSlider
-                      before={active.before}
-                      after={active.after}
+                    <Image
+                      src={active.image}
+                      alt={active.patient}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 700px"
+                      priority
                     />
+                    {/* Soft top & bottom vignettes for chip legibility */}
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy/30 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy/55 to-transparent pointer-events-none" />
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Case number — bottom left of slider */}
-                <div className="absolute bottom-3 left-3 z-10 flex items-end gap-1.5 pointer-events-none">
-                  <span className="font-heading italic text-white text-2xl md:text-3xl font-bold leading-none drop-shadow-lg">
+                {/* Top-left — verified pill */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full
+                  backdrop-blur-xl bg-white/15 border border-white/30">
+                  <BadgeCheck className="w-3.5 h-3.5 text-primary-light" />
+                  <span className="text-white text-[10px] tracking-[0.25em] uppercase font-semibold">
+                    Verified Patient
+                  </span>
+                </div>
+
+                {/* Top-right — rating */}
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full
+                  backdrop-blur-xl bg-primary/60 border border-white/30">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-2.5 h-2.5 fill-white text-white" />
+                    ))}
+                  </div>
+                  <span className="text-white text-[10px] font-bold">5.0</span>
+                </div>
+
+                {/* Big italic case number — bottom left */}
+                <div className="absolute bottom-4 left-4 z-10 flex items-end gap-1.5">
+                  <span className="font-heading italic text-white text-3xl md:text-4xl font-bold leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-mono text-white/70 text-[9px] tracking-widest pb-1">
+                  <span className="font-mono text-white/70 text-[10px] tracking-widest pb-1">
                     / {String(transformations.length).padStart(2, "0")}
                   </span>
                 </div>
+
+                {/* Bottom-right — treatment badge */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    transition={{ duration: 0.35 }}
+                    className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full
+                      backdrop-blur-xl bg-white/95 border border-white shadow-sm"
+                  >
+                    <Heart className="w-3 h-3 fill-primary text-primary" />
+                    <span className="text-navy text-[10px] tracking-[0.2em] uppercase font-semibold">
+                      {active.treatment}
+                    </span>
+                  </motion.div>
+                </AnimatePresence>
               </div>
+
+              {/* Patient name strip below the photo */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35 }}
+                  className="flex items-center justify-between gap-3 mt-3 px-2"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primary-dark
+                      flex items-center justify-center text-white font-heading font-bold text-sm shrink-0
+                      ring-2 ring-primary/15">
+                      {active.patient.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-heading text-navy font-bold text-sm leading-tight">
+                        {active.patient}
+                      </p>
+                      <p className="text-navy/45 text-[10px] tracking-wide">
+                        Age {active.age} · {active.treatment}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
+                    <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-emerald-700 text-[9px] tracking-widest uppercase font-semibold">
+                      Real Patient
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            {/* RIGHT — Story Panel (5 cols) */}
+            {/* ─── RIGHT — Story Panel (5 cols) ─── */}
             <div className="lg:col-span-5 relative flex flex-col">
               <div className="relative h-full rounded-2xl bg-white border border-navy/[0.05]
                 shadow-[0_15px_40px_-20px_rgba(40,47,90,0.1)] p-5 md:p-6 lg:p-7 overflow-hidden flex flex-col">
@@ -316,33 +299,8 @@ export default function SmileGallery() {
                       &ldquo;{active.quote}&rdquo;
                     </p>
 
-                    {/* Patient + treatment in one row */}
-                    <div className="flex items-center gap-3 pb-4 mb-4 border-b border-navy/8">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dark
-                        flex items-center justify-center text-white font-heading font-bold text-sm shrink-0
-                        ring-2 ring-primary/15">
-                        {active.patient.charAt(0)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-heading text-navy font-bold text-sm leading-tight">
-                          {active.patient}
-                        </p>
-                        <p className="text-navy/45 text-[10px] tracking-wide">
-                          Age {active.age} · Verified
-                        </p>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <p className="text-primary text-[9px] tracking-[0.2em] uppercase font-semibold">
-                          Treatment
-                        </p>
-                        <p className="text-navy font-semibold text-xs mt-0.5">
-                          {active.treatment}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Mini stats — horizontal compact */}
-                    <div className="grid grid-cols-2 gap-2.5">
+                    {/* Mini stats */}
+                    <div className="grid grid-cols-2 gap-2.5 mb-5">
                       <div className="flex items-center gap-2.5 rounded-xl bg-beige-light/60 px-3 py-2.5">
                         <div className="w-8 h-8 rounded-lg bg-white border border-primary/15 flex items-center justify-center shrink-0">
                           <Clock className="w-3.5 h-3.5 text-primary" />
@@ -368,6 +326,23 @@ export default function SmileGallery() {
                             {active.sessions}
                           </p>
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Journey timeline */}
+                    <div>
+                      <p className="text-navy/45 text-[9px] tracking-[0.3em] uppercase font-semibold mb-2.5">
+                        The Journey
+                      </p>
+                      <div className="flex items-stretch gap-1.5">
+                        {active.journey.map((step, i) => (
+                          <div key={step} className="flex-1">
+                            <div className="h-1 rounded-full bg-gradient-to-r from-primary to-primary-light" />
+                            <p className="text-navy/60 text-[10px] mt-1.5 leading-tight">
+                              {step}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </motion.div>
@@ -406,16 +381,19 @@ export default function SmileGallery() {
                       }`}
                   >
                     <Image
-                      src={t.after}
+                      src={t.image}
                       alt={t.patient}
                       fill
                       className="object-cover"
                       sizes="200px"
                     />
-                    <div className={`absolute inset-0 transition-opacity duration-500 ${
-                      isActive ? "bg-navy/25" : "bg-navy/55 group-hover:bg-navy/35"
-                    }`} />
-
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        isActive
+                          ? "bg-navy/25"
+                          : "bg-navy/55 group-hover:bg-navy/35"
+                      }`}
+                    />
                     {/* Label */}
                     <div className="absolute inset-0 flex items-center justify-between px-2.5">
                       <span className="font-heading italic text-white text-base font-bold leading-none drop-shadow">

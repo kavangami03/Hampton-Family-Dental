@@ -170,11 +170,10 @@ export default function Hero() {
         className="hidden md:flex absolute top-36 right-10 z-10 w-40 h-40
           items-center justify-center pointer-events-none"
       >
-        <div
-          className="absolute inset-0 rounded-full will-change-transform [backface-visibility:hidden]"
-          style={{
-            animation: "spin 28s linear infinite",
-          }}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full will-change-transform"
         >
           <svg viewBox="0 0 200 200" className="w-full h-full" shapeRendering="geometricPrecision">
             <defs>
@@ -196,7 +195,7 @@ export default function Hero() {
               </textPath>
             </text>
           </svg>
-        </div>
+        </motion.div>
         <div className="absolute inset-3 rounded-full border border-primary-light/25" />
         <div className="relative flex flex-col items-center justify-center w-20 h-20 rounded-full bg-primary/20 border border-primary/40 shadow-[0_0_30px_rgba(11,179,182,0.4)]">
           <Award className="w-6 h-6 text-primary-light mb-1" strokeWidth={2.2} />
