@@ -18,7 +18,7 @@ import {
 
 const transformations = [
   {
-    image: "/images/cosmetic_smile_1779858128482.png",
+    image: "/images/cosmetic_smile_1779858128482.webp",
     patient: "Sarah M.",
     age: 34,
     treatment: "Porcelain Veneers",
@@ -29,7 +29,7 @@ const transformations = [
     journey: ["Consultation", "Smile Design", "Crafting", "Reveal"],
   },
   {
-    image: "/images/smile_before_after_1779858325738.png",
+    image: "/images/smile_before_after_1779858325738.webp",
     patient: "Michael R.",
     age: 41,
     treatment: "Invisalign + Whitening",
@@ -40,7 +40,7 @@ const transformations = [
     journey: ["3D Scan", "Aligners", "Whitening", "Polish"],
   },
   {
-    image: "/images/patient_testimonial_2_1779858279502.png",
+    image: "/images/patient_testimonial_2_1779858279502.webp",
     patient: "Jennifer L.",
     age: 29,
     treatment: "Cosmetic Makeover",

@@ -13,8 +13,8 @@
   --color-beige-dark: #c5bfbc;
   --color-white: #ffffff;
 
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-body: "Poppins", system-ui, sans-serif;
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-poppins), system-ui, sans-serif;
 }
 
 @layer base {
@@ -25,7 +25,12 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Smooth scrolling is owned by Lenis (SmoothScrollProvider). Keeping the
+       native `scroll-behavior: smooth` here made the browser and Lenis fight
+       over the same scroll target, causing micro-stutter. `scroll-padding-top`
+       keeps anchor targets clear of the fixed header on the native fallback
+       path (reduced-motion users). */
+    scroll-padding-top: 80px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -163,6 +168,7 @@
 
   .animate-pulse-glow {
     animation: pulseGlow 3s ease-in-out infinite;
+    will-change: opacity;
   }
 }
 
@@ -171,9 +177,12 @@
   50% { transform: translateY(-20px); }
 }
 
+/* Pulse via opacity (compositor-friendly) instead of animating box-shadow,
+   which forced a full repaint of the element every frame for the whole loop.
+   On the large blurred ambient orb the visual result is virtually identical. */
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px var(--color-primary-glow); }
-  50% { box-shadow: 0 0 40px var(--color-primary-glow), 0 0 60px rgba(11, 179, 182, 0.15); }
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 @keyframes spin {

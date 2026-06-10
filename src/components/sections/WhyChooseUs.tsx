@@ -109,7 +109,7 @@ export default function WhyChooseUs() {
             {/* Background image */}
             <div className="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-700">
               <Image
-                src="/images/about_storytelling_1779858491119.png"
+                src="/images/about_storytelling_1779858491119.webp"
                 alt=""
                 fill
                 className="object-cover group-hover:scale-[1.05] transition-transform duration-[1.5s]"
@@ -390,7 +390,7 @@ export default function WhyChooseUs() {
             {/* Image side */}
             <div className="relative w-[40%] hidden sm:block overflow-hidden">
               <Image
-                src="/images/family_dental_1779858082600.png"
+                src="/images/family_dental_1779858082600.webp"
                 alt="Family-friendly environment"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]"

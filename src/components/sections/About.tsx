@@ -140,7 +140,7 @@ export default function About() {
               className="relative aspect-[4/5] rounded-[2rem] overflow-hidden premium-shadow-lg"
             >
               <Image
-                src="/images/about_storytelling_1779858491119.png"
+                src="/images/about_storytelling_1779858491119.webp"
                 alt="Our compassionate dental team"
                 fill
                 className="object-cover"
@@ -165,7 +165,7 @@ export default function About() {
                 ring-[6px] ring-beige-light premium-shadow hidden sm:block"
             >
               <Image
-                src="/images/clinic_interior_1779858062605.png"
+                src="/images/clinic_interior_1779858062605.webp"
                 alt="Modern dental clinic interior"
                 fill
                 className="object-cover"
@@ -279,7 +279,7 @@ export default function About() {
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-primary/30">
                       <Image
-                        src="/images/dentist_portrait_1779858109259.png"
+                        src="/images/dentist_portrait_1779858109259.webp"
                         alt="Dr. Hampton"
                         width={48}
                         height={48}

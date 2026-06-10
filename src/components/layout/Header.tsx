@@ -35,44 +35,50 @@ export default function Header() {
   // Timer that brings the header back after the user stops scrolling.
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Track active section
+  // Track active section.
+  // Was: a non-passive `scroll` listener that read offsetTop/offsetHeight for
+  // every nav link on every scroll frame (forced reflow ~60x/sec) and called
+  // setState each time. Now an IntersectionObserver does zero per-frame work
+  // and only updates state when the visible section actually changes.
   useEffect(() => {
-    const handleScrollObserver = () => {
-      const scrollPosition = window.scrollY + 150;
-      if (window.scrollY < 50) {
-        setActiveSection("home");
-        return;
-      }
-      for (const link of navLinks) {
-        const id = link.href.replace("#", "");
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(id);
-            break;
-          }
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const id = visible.target.id;
+          setActiveSection((prev) => (prev === id ? prev : id));
         }
-      }
-    };
-    window.addEventListener("scroll", handleScrollObserver);
-    return () => window.removeEventListener("scroll", handleScrollObserver);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   // Show/hide + scrolled state
   // Strategy: hide on downward scroll past 200px, then bring it back as soon
   // as the user stops scrolling (200ms of stillness counts as "stopped").
+  // State setters are guarded so React only re-renders when a value actually
+  // flips — not on every scroll frame.
   useMotionValueEvent(scrollY, "change", (latest) => {
     const diff = latest - lastScrollY.current;
-    setIsScrolled(latest > 60);
+    const scrolled = latest > 60;
+    setIsScrolled((prev) => (prev === scrolled ? prev : scrolled));
 
     if (latest > 200 && diff > 8) {
       // Actively scrolling downward — hide the header.
-      setIsHidden(true);
+      setIsHidden((prev) => (prev ? prev : true));
     } else if (latest <= 200) {
       // Near the top — always show.
-      setIsHidden(false);
+      setIsHidden((prev) => (prev ? false : prev));
     }
 
     // Reset the idle timer on every scroll event. When this timeout fires,

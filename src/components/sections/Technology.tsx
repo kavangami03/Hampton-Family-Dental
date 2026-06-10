@@ -28,7 +28,7 @@ const technologies = [
       "90% less radiation",
       "Real-time chair-side review",
     ],
-    image: "/images/dental_technology_1779858148872.png",
+    image: "/images/dental_technology_1779858148872.webp",
   },
   {
     icon: Box,
@@ -42,7 +42,7 @@ const technologies = [
       "Implant & aligner mapping",
       "View your smile in 3D",
     ],
-    image: "/images/clinic_interior_1779858062605.png",
+    image: "/images/clinic_interior_1779858062605.webp",
   },
   {
     icon: Zap,
@@ -56,7 +56,7 @@ const technologies = [
       "Less bleeding & swelling",
       "Often no anesthesia needed",
     ],
-    image: "/images/service_general_1779858374972.png",
+    image: "/images/service_general_1779858374972.webp",
   },
   {
     icon: Stethoscope,
@@ -70,7 +70,7 @@ const technologies = [
       "Patient-friendly walkthroughs",
       "Honest, transparent diagnoses",
     ],
-    image: "/images/dentist_portrait_1779858109259.png",
+    image: "/images/dentist_portrait_1779858109259.webp",
   },
   {
     icon: ShieldCheck,
@@ -84,7 +84,7 @@ const technologies = [
       "Single-use barrier protocols",
       "CDC-compliant procedures",
     ],
-    image: "/images/reception_area_1779858343255.png",
+    image: "/images/reception_area_1779858343255.webp",
   },
 ];
 

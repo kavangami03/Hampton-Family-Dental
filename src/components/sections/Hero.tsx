@@ -24,9 +24,9 @@ const services = [
 ];
 
 const avatars = [
-  "/images/patient_testimonial_1_1779858256371.png",
-  "/images/patient_testimonial_2_1779858279502.png",
-  "/images/patient_testimonial_3_1779858302817.png",
+  "/images/patient_testimonial_1_1779858256371.webp",
+  "/images/patient_testimonial_2_1779858279502.webp",
+  "/images/patient_testimonial_3_1779858302817.webp",
 ];
 
 export default function Hero() {
@@ -47,22 +47,37 @@ export default function Hero() {
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
-    const onLoaded = () => {
-      setVideoLoaded(true);
-      v.play().catch(() => {
-        /* autoplay blocked — poster stays */
-      });
-    };
+    const section = sectionRef.current;
+    if (!v || !section) return;
+
+    const onLoaded = () => setVideoLoaded(true);
     const onError = () => {
-      console.warn("[Hero video] failed to load primary source");
+      console.warn("[Hero video] failed to load source");
     };
     v.addEventListener("loadeddata", onLoaded);
     v.addEventListener("error", onError);
-    // Force a load + play attempt on mount
-    v.load();
-    v.play().catch(() => {});
+
+    // Defer the (multi-MB) download until the hero is actually on screen,
+    // instead of preload="auto" forcing it to compete with fonts/LCP image
+    // on first paint. The WebP poster shows instantly in the meantime.
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            v.play().catch(() => {
+              /* autoplay blocked — poster stays */
+            });
+          } else {
+            v.pause();
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    io.observe(section);
+
     return () => {
+      io.disconnect();
       v.removeEventListener("loadeddata", onLoaded);
       v.removeEventListener("error", onError);
     };
@@ -83,25 +98,25 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
-          autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          poster="/images/clinic_interior_1779858062605.png"
+          preload="none"
+          poster="/images/clinic_interior_1779858062605.webp"
         >
+          {/* Prefer the small re-encoded WebM/720p MP4 once generated; the
+              original is kept last as a guaranteed fallback. The browser skips
+              any source that 404s and advances to the next. */}
+          <source src="/videos/hero-dental.webm" type="video/webm" />
+          <source src="/videos/hero-dental-720.mp4" type="video/mp4" />
           <source src="/videos/hero-dental.mp4" type="video/mp4" />
-          <source
-            src="https://videos.pexels.com/video-files/4490546/4490546-uhd_2560_1440_25fps.mp4"
-            type="video/mp4"
-          />
         </video>
         {!videoLoaded && (
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage:
-                "url('/images/clinic_interior_1779858062605.png')",
+                "url('/images/clinic_interior_1779858062605.webp')",
             }}
           />
         )}
@@ -131,7 +146,7 @@ export default function Hero() {
         className="absolute inset-0 z-[2] opacity-[0.05] pointer-events-none mix-blend-overlay"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+            "url('/images/noise.webp')",
         }}
       />
 

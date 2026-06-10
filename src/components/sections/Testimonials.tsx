@@ -14,7 +14,7 @@ const testimonials = [
   {
     name: "Amanda Richardson",
     role: "Invisalign Patient",
-    image: "/images/patient_testimonial_1_1779858256371.png",
+    image: "/images/patient_testimonial_1_1779858256371.webp",
     quote:
       "From the moment I walked in, I felt like a VIP. The staff is incredibly warm, and Dr. Hampton made my Invisalign journey completely painless. My smile has never looked better.",
     rating: 5,
@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: "David Chen",
     role: "Cosmetic Patient",
-    image: "/images/patient_testimonial_2_1779858279502.png",
+    image: "/images/patient_testimonial_2_1779858279502.webp",
     quote:
       "I was terrified of dentists my whole life. Hampton changed everything — the gentle approach, the modern tech. I actually look forward to my appointments now.",
     rating: 5,
@@ -32,7 +32,7 @@ const testimonials = [
   {
     name: "Robert Thompson",
     role: "Family Patient",
-    image: "/images/patient_testimonial_3_1779858302817.png",
+    image: "/images/patient_testimonial_3_1779858302817.webp",
     quote:
       "Our entire family goes here. The kids love it, my wife loves it, and I love the results. Professional, caring, and always on time.",
     rating: 5,
