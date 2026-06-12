@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose"
-      className="relative py-20 md:py-28 lg:py-32 bg-beige-light overflow-hidden"
+      className="relative py-20 md:py-28 lg:py-32 bg-primary/5 overflow-hidden"
     >
       {/* Ambient orbs */}
       <div className="absolute top-[10%] right-[-8%] w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-[140px] pointer-events-none" />

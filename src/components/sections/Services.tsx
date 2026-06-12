@@ -120,7 +120,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-beige-light py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       {/* Inject smooth CSS keyframe marquee animation */}
       <style dangerouslySetInnerHTML={{__html: `

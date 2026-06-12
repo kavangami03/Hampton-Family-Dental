@@ -19,8 +19,8 @@ export default function Home() {
       <main>
         <Hero />
         <TrustStats />
-        <About />
         <Services />
+        <About />
         <WhyChooseUs />
         <SmileGallery />
         <Technology />

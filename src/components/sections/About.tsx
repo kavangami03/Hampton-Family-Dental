@@ -50,7 +50,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-24 bg-beige-light overflow-hidden"
+      className="relative py-24 bg-white overflow-hidden"
     >
       {/* Ambient orbs */}
       <div className="absolute top-[10%] right-[-8%] w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-[120px] pointer-events-none" />
@@ -162,7 +162,7 @@ export default function About() {
             <motion.div
               style={{ y: image2Y }}
               className="absolute -bottom-10 -right-6 md:-right-10 w-[58%] aspect-[5/4] rounded-2xl overflow-hidden
-                ring-[6px] ring-beige-light premium-shadow hidden sm:block"
+                ring-[6px] ring-white premium-shadow hidden sm:block"
             >
               <Image
                 src="/images/clinic_interior_1779858062605.webp"
