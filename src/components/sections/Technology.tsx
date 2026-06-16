@@ -70,7 +70,7 @@ const technologies = [
       "Patient-friendly walkthroughs",
       "Honest, transparent diagnoses",
     ],
-    image: "/images/dentist_portrait_1779858109259.webp",
+    image: "/images/about_storytelling_1779858491119.webp",
   },
   {
     icon: ShieldCheck,

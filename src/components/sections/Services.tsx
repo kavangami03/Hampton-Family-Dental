@@ -21,7 +21,7 @@ const services = [
     icon: CircleDot,
     title: "Dental Implants",
     desc: "Permanent, natural-looking tooth replacements that restore function and confidence.",
-    image: "/images/dentist_portrait_1779858109259.webp",
+    image: "/images/cosmetic_smile_1779858128482.webp",
     tag: "Restorative",
     duration: "3–6 months",
     benefits: ["Permanent solution", "Preserves bone", "Like real teeth"],

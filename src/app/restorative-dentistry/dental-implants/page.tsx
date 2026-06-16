@@ -7,7 +7,7 @@ export default function DentalImplantsPage() {
     intro: "Restore the complete look, strength, and functionality of missing teeth. Dental implants are biocompatible titanium posts that act as permanent anchors for premium crown restorations, protecting your jawbone and adjacent teeth.",
     duration: "3–6 months",
     visits: "3–4 visits",
-    image: "/images/dentist_portrait_1779858109259.webp",
+    image: "/images/cosmetic_smile_1779858128482.webp",
     whatIs: {
       title: "What is a Dental Implant?",
       text: "A dental implant is a titanium post surgically positioned into the jawbone beneath the gumline. Once integrated with the bone (a process called osseointegration), it serves as a stable mount for a custom-crafted replacement crown. This permanent solution prevents bone loss and looks, feels, and functions exactly like a natural tooth.",
