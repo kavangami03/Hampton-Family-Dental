@@ -27,21 +27,13 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Family Dentist in Southampton, PA | Hampton Family Dental",
   description:
-    "Trusted family & cosmetic dentistry in Southampton, PA. Formerly Brenner Dental Group — same team, same location. Dental implants, Invisalign, emergency care & more. Call (215) 357-2224.",
+    "Hampton Family Dental — formerly Brenner Dental Group — offers gentle family, cosmetic & emergency dentistry in Southampton, PA. New patients welcome. Call (215) 357-2224.",
   keywords: [
     "dentist southampton pa",
     "family dentist southampton",
-    "cosmetic dentistry southampton pa",
+    "dental implants southampton",
     "emergency dentist southampton",
-    "dental implants southampton pa",
-    "invisalign southampton pa",
-    "teeth whitening southampton pa",
-    "family dentistry",
-    "cosmetic dentistry",
-    "Invisalign",
-    "teeth whitening",
-    "dental implants",
-    "veneers",
+    "invisalign southampton",
   ],
   robots: {
     index: true,
@@ -51,8 +43,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Family Dentist in Southampton, PA | Hampton Family Dental",
     description:
-      "Trusted family & cosmetic dentistry in Southampton, PA. Formerly Brenner Dental Group — same team, same location. Dental implants, Invisalign, emergency care & more.",
+      "Gentle family, cosmetic & emergency dentistry in Southampton, PA. Formerly Brenner Dental Group. Now welcoming new patients.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Family Dentist in Southampton, PA | Hampton Family Dental",
+    description:
+      "Gentle family, cosmetic & emergency dentistry in Southampton, PA. Formerly Brenner Dental Group. Now welcoming new patients.",
   },
 };
 

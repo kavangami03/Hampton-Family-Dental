@@ -5,7 +5,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Quote,
   Heart,
   Sparkles,
   Users,
@@ -99,10 +98,10 @@ export default function About() {
               letterSpacing: "-0.03em",
             }}
           >
-            Where Compassion Meets{" "}
+            Meet Your Southampton{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-br from-primary via-primary-dark to-primary bg-clip-text text-transparent italic font-normal">
-                Modern Dentistry
+                Dentists
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -268,9 +267,8 @@ export default function About() {
 
                 <p className="font-heading text-navy text-lg md:text-xl leading-snug mb-7 max-w-2xl italic"
                    style={{ letterSpacing: "-0.01em" }}>
-                  &ldquo;Our mission is simple — to provide dental care so
-                  comfortable, and results so beautiful, that you actually look
-                  forward to visiting the dentist.&rdquo;
+                  Dr. Jeffrey Brenner and Dr. Keyur Dudhat lead Hampton Family
+                  Dental with gentle, modern care for Southampton families.
                 </p>
 
                 {/* Two doctor cards side-by-side */}
@@ -294,10 +292,10 @@ export default function About() {
                         Dr. Jeffrey Brenner
                       </p>
                       <p className="text-navy/50 text-xs">
-                        Founder · DDS · Since 2004
+                        Founding dentist · Formerly Brenner Dental Group
                       </p>
                       <p className="text-primary text-[10px] mt-1 font-semibold tracking-wider uppercase flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Learn More <ArrowUpRight className="w-3 h-3" />
+                        Meet Dr. Brenner <ArrowUpRight className="w-3 h-3" />
                       </p>
                     </div>
                   </Link>
@@ -321,10 +319,10 @@ export default function About() {
                         Dr. Keyur Dudhat
                       </p>
                       <p className="text-navy/50 text-xs">
-                        General & Cosmetic Dentist
+                        Restorative & Cosmetic Dentist
                       </p>
                       <p className="text-primary text-[10px] mt-1 font-semibold tracking-wider uppercase flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Learn More <ArrowUpRight className="w-3 h-3" />
+                        Meet Dr. Dudhat <ArrowUpRight className="w-3 h-3" />
                       </p>
                     </div>
                   </Link>

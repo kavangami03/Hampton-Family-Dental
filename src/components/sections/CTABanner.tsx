@@ -67,7 +67,7 @@ export default function CTABanner() {
               <span className="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse" />
               <Sparkles className="w-3 h-3 text-primary-light" />
               <span className="text-primary-light text-[10px] tracking-[0.25em] uppercase font-semibold">
-                Limited New-Patient Offer
+                New Patients Welcome
               </span>
             </div>
 
@@ -80,10 +80,10 @@ export default function CTABanner() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Your Perfect{" "}
+              New to Hampton{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-primary-light via-primary to-primary-light bg-clip-text text-transparent italic font-normal">
-                  Smile
+                  Family Dental?
                 </span>
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -93,22 +93,20 @@ export default function CTABanner() {
                   className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary-light to-transparent origin-left"
                 />
               </span>
-              <br />
-              Awaits You.
             </h2>
 
             {/* Subtitle */}
             <p className="text-white/65 text-base lg:text-lg leading-relaxed mb-7 max-w-xl">
-              New patients receive a complimentary consultation and a
-              personalized treatment plan. Start your journey to a healthier,
-              more confident smile — on us.
+              We&apos;re currently welcoming new patients of all ages in
+              Southampton and nearby communities. Booking your first visit is
+              easy — and we&apos;ll handle the rest.
             </p>
 
             {/* Trust signal pills */}
             <div className="flex flex-wrap gap-2 mb-8">
               {[
-                "Free consultation",
-                "No obligation",
+                "New patients welcome",
+                "Easy first visit",
                 "Insurance accepted",
                 "Same-day available",
               ].map((s) => (
@@ -127,7 +125,7 @@ export default function CTABanner() {
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#contact"
+                href="/patient-information/new-patients"
                 className="group relative inline-flex items-center gap-3 pl-6 pr-2 py-2
                   rounded-full bg-gradient-to-r from-primary to-primary-dark text-white font-semibold
                   shadow-[0_10px_40px_rgba(11,179,182,0.4)]
@@ -138,7 +136,7 @@ export default function CTABanner() {
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Calendar className="relative z-10 w-4 h-4" />
                 <span className="relative z-10 text-sm tracking-wide">
-                  Book Free Consultation
+                  Book Your First Visit
                 </span>
                 <span className="relative z-10 w-10 h-10 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

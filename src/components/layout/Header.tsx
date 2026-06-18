@@ -53,6 +53,7 @@ export default function Header() {
                 >
                   <Phone className="w-3 h-3" />
                   <span className="tracking-wide font-medium">
+                    Now Welcoming New Patients in Southampton, PA — Call{" "}
                     {practiceInfo.phone}
                   </span>
                 </a>

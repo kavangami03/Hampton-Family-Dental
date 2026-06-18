@@ -85,7 +85,6 @@ interface ServicePageTemplateProps {
   schemaFaqs?: FAQ[];
   medicalProcedureSchema?: Record<string, unknown>;
   relatedServices: RelatedService[];
-  externalLinks?: RelatedService[];
   areasServedLine?: string;
   breadcrumbs: { label: string; href?: string }[];
 }
@@ -147,7 +146,6 @@ export default function ServicePageTemplate({
   schemaFaqs,
   medicalProcedureSchema,
   relatedServices,
-  externalLinks = [],
   areasServedLine,
   breadcrumbs,
 }: ServicePageTemplateProps) {
@@ -474,60 +472,49 @@ export default function ServicePageTemplate({
       />
 
       {/* ─── Related Services Navigation ─── */}
-      {relatedServices.length > 0 && (
-        <section className="py-12 bg-beige-light/20 border-t border-navy/5">
-          <div className="max-w-[1000px] mx-auto px-5">
-            <h4 className="text-navy/45 text-[10px] tracking-widest uppercase font-bold text-center mb-6">
-              Explore Related Dental Treatments
-            </h4>
-            <div className="flex flex-wrap justify-center gap-4">
-              {relatedServices.map((rel) => (
-                <Link
-                  key={rel.href}
-                  href={rel.href}
-                  target={rel.external ? "_blank" : undefined}
-                  rel={rel.external ? "noopener noreferrer" : undefined}
-                  className="group inline-flex items-center gap-2 bg-white border border-navy/5 px-5 py-2.5 rounded-full text-xs font-semibold hover:border-primary hover:text-primary transition-all duration-300 shadow-sm"
-                >
-                  {rel.label}
-                  <ArrowUpRight className="w-3.5 h-3.5 text-navy/30 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {(relatedServices.length > 0 || areasServedLine) && (
+        <section className="bg-beige-light/25 border-y border-navy/5">
+          <div className="max-w-[1080px] mx-auto px-5 py-9 md:py-10">
+            <div
+              className={`grid gap-6 ${
+                areasServedLine
+                  ? "md:grid-cols-[1fr_1.2fr] md:items-center"
+                  : "justify-items-center"
+              }`}
+            >
+              {areasServedLine && (
+                <div className="space-y-2 text-center md:text-left">
+                  <h4 className="text-primary-dark text-[10px] tracking-widest uppercase font-bold">
+                    Areas We Serve
+                  </h4>
+                  <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                    {areasServedLine}
+                  </p>
+                </div>
+              )}
 
-      {externalLinks.length > 0 && (
-        <section className="py-10 bg-white border-t border-navy/5">
-          <div className="max-w-[1000px] mx-auto px-5">
-            <h4 className="text-navy/45 text-[10px] tracking-widest uppercase font-bold text-center mb-5">
-              External authority
-            </h4>
-            <div className="flex flex-wrap justify-center gap-4">
-              {externalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-beige-light/30 border border-navy/5 px-5 py-2.5 rounded-full text-xs font-semibold hover:border-primary hover:text-primary transition-all duration-300 shadow-sm"
-                >
-                  {link.label}
-                  <ArrowUpRight className="w-3.5 h-3.5 text-navy/30 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </Link>
-              ))}
+              {relatedServices.length > 0 && (
+                <div className="space-y-4">
+                  <h4 className="text-navy/45 text-[10px] tracking-widest uppercase font-bold text-center md:text-left">
+                    Explore Related Dental Treatments
+                  </h4>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                    {relatedServices.map((rel) => (
+                      <Link
+                        key={rel.href}
+                        href={rel.href}
+                        target={rel.external ? "_blank" : undefined}
+                        rel={rel.external ? "noopener noreferrer" : undefined}
+                        className="group inline-flex items-center gap-2 bg-white border border-navy/5 px-4 py-2.5 rounded-full text-xs font-semibold hover:border-primary hover:text-primary transition-all duration-300 shadow-sm"
+                      >
+                        {rel.label}
+                        <ArrowUpRight className="w-3.5 h-3.5 text-navy/30 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-        </section>
-      )}
-
-      {areasServedLine && (
-        <section className="py-8 bg-beige-light/20 border-t border-navy/5">
-          <div className="max-w-[1000px] mx-auto px-5 text-center">
-            <p className="text-navy/65 text-sm md:text-base leading-relaxed">
-              {areasServedLine}
-            </p>
           </div>
         </section>
       )}

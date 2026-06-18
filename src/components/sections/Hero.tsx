@@ -3,14 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import {
-  Star,
   ChevronDown,
-  Play,
+  Phone,
   ArrowUpRight,
   Sparkles,
   Award,
+  CheckCircle2,
 } from "lucide-react";
 
 const services = [
@@ -21,12 +20,6 @@ const services = [
   "Family Care",
   "Porcelain Veneers",
   "Emergency Care",
-];
-
-const avatars = [
-  "/images/patient_testimonial_1_1779858256371.webp",
-  "/images/patient_testimonial_2_1779858279502.webp",
-  "/images/patient_testimonial_3_1779858302817.webp",
 ];
 
 export default function Hero() {
@@ -239,7 +232,7 @@ export default function Hero() {
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-white/8 border border-white/15">
             <Sparkles className="w-3 h-3 text-primary-light" />
             <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-semibold">
-              Family Dental Excellence
+              Formerly Brenner Dental Group · Southampton, PA · Since 2004
             </span>
           </div>
         </motion.div>
@@ -260,11 +253,12 @@ export default function Hero() {
             letterSpacing: "-0.04em",
           }}
         >
-          <span className="block">Modern Family</span>
+          <span className="block">Your Family</span>
           <span className="block">
+            Dentist in{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-br from-primary-light via-primary to-primary-light bg-clip-text text-transparent italic font-normal">
-                Dentistry
+                Southampton, PA
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -275,7 +269,6 @@ export default function Hero() {
               />
             </span>
           </span>
-          <span className="block">in Southampton, PA.</span>
         </motion.h1>
 
         {/* Sub + side panel layout */}
@@ -287,9 +280,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.85 }}
             className="text-white/70 max-w-xl leading-relaxed text-sm md:text-base lg:text-[1.2rem]"
           >
-            Comprehensive family and cosmetic dentistry — blending advanced
-            technology, compassionate care, and a calm, welcoming experience
-            designed entirely around your smile.
+            Gentle, modern dental care for every age — from routine cleanings
+            to dental implants, Invisalign, cosmetic dentistry, and same-day
+            emergency care. The trusted team you know, now as Hampton Family
+            Dental.
           </motion.p>
 
           {/* Brand bridge */}
@@ -326,7 +320,7 @@ export default function Hero() {
               -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
             />
             <span className="relative z-10 text-sm tracking-wide">
-              Schedule Now
+              Book an Appointment
             </span>
             <span className="relative z-10 w-10 h-10 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -334,7 +328,7 @@ export default function Hero() {
           </Link>
 
           <Link
-            href="/#services"
+            href="tel:+12153572224"
             className="group inline-flex items-center gap-2.5
               px-6 py-3.5 rounded-full
               backdrop-blur-md bg-white/8 border border-white/25 text-white font-semibold text-sm
@@ -343,10 +337,29 @@ export default function Hero() {
               transition-all duration-300"
           >
             <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/90 group-hover:bg-primary transition-colors">
-              <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
+              <Phone className="w-3 h-3 text-white" />
             </span>
-            <span>Explore Services</span>
+            <span>Call (215) 357-2224</span>
           </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.35 }}
+          className="mt-6 flex flex-wrap items-center gap-2.5"
+        >
+          {["4.9★ Google reviews", "New patients welcome", "Most insurance accepted"].map(
+            (badge) => (
+              <span
+                key={badge}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-3 py-1.5 text-white/75 text-[11px] font-semibold"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-primary-light" />
+                {badge}
+              </span>
+            ),
+          )}
         </motion.div>
       </motion.div>
 

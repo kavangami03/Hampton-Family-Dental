@@ -14,13 +14,14 @@ import {
   ArrowUpRight,
   Check,
   ShieldCheck,
+  type LucideIcon,
 } from "lucide-react";
 
 const services = [
   {
     icon: CircleDot,
     title: "Dental Implants",
-    desc: "Permanent, natural-looking tooth replacements that restore function and confidence.",
+    desc: "Permanent, natural-looking tooth replacement.",
     image: "/images/cosmetic_smile_1779858128482.webp",
     tag: "Restorative",
     duration: "3–6 months",
@@ -28,29 +29,29 @@ const services = [
     href: "/restorative-dentistry/dental-implants",
   },
   {
-    icon: ShieldCheck,
-    title: "Crowns",
-    desc: "Custom-fitted dental crowns to restore, strengthen, and protect damaged or decayed teeth.",
-    image: "/images/service_veneers_1779858461216.webp",
-    tag: "Restorative",
-    duration: "2 visits",
-    benefits: ["Restores tooth strength", "Natural-looking ceramic", "Long-term protection"],
-    href: "/restorative-dentistry/dental-crowns",
-  },
-  {
     icon: AlertCircle,
-    title: "Dental Emergency",
-    desc: "Same-day emergency dental appointments whenever urgent care is needed.",
+    title: "Emergency Dentistry",
+    desc: "Same-day relief when you need it most.",
     image: "/images/reception_area_1779858343255.webp",
     tag: "Urgent",
     duration: "Same day",
-    benefits: ["24/7 availability", "Pain relief", "Trauma care"],
+    benefits: ["Urgent appointments", "Pain relief", "Trauma care"],
     href: "/general-dentistry/emergency-dentistry",
+  },
+  {
+    icon: SmilePlus,
+    title: "Invisalign",
+    desc: "Straighten your smile with clear aligners.",
+    image: "/images/service_invisalign_1779858394769.webp",
+    tag: "Orthodontic",
+    duration: "6–18 months",
+    benefits: ["Nearly invisible", "Removable trays", "Faster than braces"],
+    href: "/cosmetic-dentistry/invisalign",
   },
   {
     icon: Stethoscope,
     title: "General Dentistry",
-    desc: "Comprehensive care including cleanings, fillings, and preventive treatments for your entire family.",
+    desc: "Cleanings, exams & care for the whole family.",
     image: "/images/service_general_1779858374972.webp",
     tag: "Preventive",
     duration: "30–60 min",
@@ -58,19 +59,29 @@ const services = [
     href: "/general-dentistry",
   },
   {
-    icon: Layers,
-    title: "Fillings",
-    desc: "Composite, tooth-colored fillings to seamlessly treat cavities and repair tooth decay.",
-    image: "/images/cosmetic_smile_1779858128482.webp",
+    icon: Sparkles,
+    title: "Cosmetic Dentistry",
+    desc: "Veneers, whitening & smile makeovers.",
+    image: "/images/about_storytelling_1779858491119.webp",
+    tag: "Cosmetic",
+    duration: "Varies",
+    benefits: ["Veneers", "Whitening", "Smile makeovers"],
+    href: "/cosmetic-dentistry",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Dental Crowns",
+    desc: "Restore and protect damaged teeth.",
+    image: "/images/service_veneers_1779858461216.webp",
     tag: "Restorative",
-    duration: "1 visit",
-    benefits: ["Tooth-colored composite", "Halts tooth decay", "Quick single-visit treatment"],
-    href: "/restorative-dentistry/dental-fillings",
+    duration: "2 visits",
+    benefits: ["Restores tooth strength", "Natural-looking ceramic", "Long-term protection"],
+    href: "/restorative-dentistry/dental-crowns",
   },
   {
     icon: Sun,
     title: "Teeth Whitening",
-    desc: "Professional-grade whitening for a brighter, more confident smile in just one visit.",
+    desc: "A brighter smile in a single visit.",
     image: "/images/service_whitening_1779858413749.webp",
     tag: "Aesthetic",
     duration: "60 min",
@@ -78,29 +89,19 @@ const services = [
     href: "/cosmetic-dentistry/teeth-whitening",
   },
   {
-    icon: Sparkles,
-    title: "Clear Correct/Perio Protect",
-    desc: "Advanced clear orthodontic aligners combined with non-invasive, custom periodontal therapy.",
-    image: "/images/about_storytelling_1779858491119.webp",
-    tag: "Specialty",
-    duration: "Varies",
-    benefits: ["Discreet alignment", "Fights gum disease", "Home-use comfort"],
-    href: "/cosmetic-dentistry/clear-correct",
-  },
-  {
-    icon: SmilePlus,
-    title: "Invisalign",
-    desc: "Straighten teeth discreetly with custom clear aligners. No brackets, no wires — just results.",
-    image: "/images/service_invisalign_1779858394769.webp",
-    tag: "Orthodontic",
-    duration: "6–18 months",
-    benefits: ["Nearly invisible", "Removable trays", "Faster than braces"],
-    href: "/cosmetic-dentistry/invisalign",
+    icon: Layers,
+    title: "Tooth-Colored Fillings",
+    desc: "Discreet, durable cavity repair.",
+    image: "/images/cosmetic_smile_1779858128482.webp",
+    tag: "Restorative",
+    duration: "1 visit",
+    benefits: ["Tooth-colored composite", "Halts tooth decay", "Quick single-visit treatment"],
+    href: "/restorative-dentistry/dental-fillings",
   },
 ];
 
 interface ServiceItem {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   desc: string;
   image: string;
@@ -199,9 +200,9 @@ export default function Services() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Premium Dental{" "}
+              Complete Dental Care for Every{" "}
               <span className="bg-gradient-to-br from-primary via-primary-dark to-primary bg-clip-text text-transparent italic font-normal">
-                Services.
+                Smile.
               </span>
             </motion.h2>
 
@@ -212,8 +213,9 @@ export default function Services() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="svc-desc text-navy/55 text-sm md:text-base leading-relaxed max-w-xl"
             >
-              From routine care to transformative cosmetic treatments — every
-              service is delivered with precision and warmth.
+              From routine family dentistry to advanced cosmetic and restorative
+              treatments, we offer the services your family needs in one
+              comfortable Southampton office.
             </motion.p>
           </div>
         </div>

@@ -66,7 +66,7 @@ export default function WhyChooseUs() {
               letterSpacing: "-0.03em",
             }}
           >
-            Why Patients{" "}
+            Why Southampton Families{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-br from-primary via-primary-dark to-primary bg-clip-text text-transparent italic font-normal">
                 Choose Us
@@ -89,8 +89,9 @@ export default function WhyChooseUs() {
             className="text-navy/55 mt-5 leading-relaxed"
             style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)" }}
           >
-            It&apos;s not just about dental care — it&apos;s about an experience
-            that makes you feel valued, comfortable, and confident.
+            From same-day emergencies to membership plans for patients without
+            insurance, our team keeps complete dental care comfortable,
+            practical, and close to home.
           </motion.p>
         </div>
 
@@ -147,15 +148,15 @@ export default function WhyChooseUs() {
 
                 <h3 className="font-heading text-white text-3xl lg:text-4xl font-bold mb-4 leading-[1.05]"
                     style={{ letterSpacing: "-0.02em" }}>
-                  Gentle,{" "}
+                  Two Trusted{" "}
                   <span className="italic font-normal bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent">
-                    Compassionate
+                    Dentists
                   </span>{" "}
-                  Care.
+                  in Southampton.
                 </h3>
                 <p className="text-white/65 text-[15px] leading-relaxed max-w-md mb-6">
-                  Every treatment begins with understanding. We listen, explain,
-                  and ensure your complete comfort — judgement-free, every visit.
+                  Dr. Jeffrey Brenner and Dr. Keyur Dudhat bring decades of
+                  combined experience and a genuinely gentle approach.
                 </p>
               </div>
 
@@ -205,11 +206,11 @@ export default function WhyChooseUs() {
                 <CalendarCheck className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-500" />
               </div>
               <h3 className="font-heading text-navy text-xl font-bold mb-2 leading-tight">
-                Same-Day Appointments
+                Same-Day Emergencies
               </h3>
               <p className="text-navy/55 text-sm leading-relaxed">
-                Emergencies don&apos;t wait — neither do we. Available for
-                urgent care.
+                In pain today? We keep room in our schedule for urgent dental
+                care whenever possible.
               </p>
             </div>
             <div className="flex items-center gap-2 pt-4 mt-4 border-t border-navy/8">
@@ -243,11 +244,11 @@ export default function WhyChooseUs() {
                 <Wrench className="w-5 h-5 text-primary" />
               </div>
               <h3 className="font-heading text-navy text-xl font-bold mb-2 leading-tight">
-                Modern Equipment
+                Comfort-First Care
               </h3>
               <p className="text-navy/55 text-sm leading-relaxed">
-                Sterile, digital imaging, and laser dentistry — safer, faster,
-                better.
+                From a calm, modern office to honest explanations at every step,
+                we make dental visits something you don&apos;t dread.
               </p>
             </div>
             <div className="flex items-center gap-2 pt-4 mt-4 border-t border-navy/8">
@@ -292,12 +293,12 @@ export default function WhyChooseUs() {
                 </div>
                 <h3 className="font-heading text-white text-2xl lg:text-[1.7rem] font-bold leading-tight mb-2"
                     style={{ letterSpacing: "-0.02em" }}>
-                  Advanced{" "}
-                  <span className="italic font-normal">Technology</span>
+                  Everything{" "}
+                  <span className="italic font-normal">Under One Roof</span>
                 </h3>
                 <p className="text-white/75 text-sm leading-relaxed">
-                  Digital X-rays, 3D scanning, and AI-assisted diagnostics —
-                  precise, minimally invasive treatments every visit.
+                  General, cosmetic, restorative, and emergency dentistry — no
+                  need to be referred elsewhere for most treatments.
                 </p>
               </div>
 
@@ -346,11 +347,12 @@ export default function WhyChooseUs() {
                   <CreditCard className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-500" />
                 </div>
                 <h3 className="font-heading text-navy text-xl lg:text-2xl font-bold mb-2 leading-tight">
-                  Flexible Financing
+                  Affordable Without Insurance
                 </h3>
                 <p className="text-navy/55 text-sm leading-relaxed max-w-md">
-                  Premium care should be accessible. Flexible payment plans, all
-                  major insurance providers.
+                  Our In-Office Membership Plans make quality care simple for
+                  patients with no dental insurance — no deductibles, no annual
+                  maximums.
                 </p>
               </div>
 

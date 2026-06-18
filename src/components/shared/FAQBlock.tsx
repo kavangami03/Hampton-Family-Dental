@@ -43,7 +43,7 @@ export default function FAQBlock({
   };
 
   return (
-    <div className="py-16 md:py-20 bg-white">
+    <div className="py-14 md:py-16 bg-white">
       {/* Schema Injection */}
       <script
         type="application/ld+json"
@@ -53,16 +53,18 @@ export default function FAQBlock({
       />
 
       <div className="max-w-[850px] mx-auto px-5">
-        <div className="text-center mb-12 max-w-xl mx-auto">
+        <div className="text-center mb-9 md:mb-10 max-w-xl mx-auto">
           <span className="text-primary text-[10px] tracking-[0.25em] uppercase font-bold">
             Got Questions?
           </span>
           <h3 className="font-heading text-navy text-2xl md:text-3xl font-bold mt-2">
             {title}
           </h3>
-          <p className="text-navy/60 text-xs md:text-sm mt-2">
-            {subtitle}
-          </p>
+          {subtitle && (
+            <p className="text-navy/60 text-xs md:text-sm mt-2">
+              {subtitle}
+            </p>
+          )}
         </div>
 
         <div className="space-y-4">

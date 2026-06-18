@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Check, CreditCard, ShieldCheck, ArrowUpRight, Heart } from "lucide-react";
+import { Sparkles, Check, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function TrustStats() {
@@ -85,7 +85,7 @@ export default function TrustStats() {
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-primary/15 shadow-sm">
               <Sparkles className="w-3 h-3 text-primary" />
               <span className="text-navy/70 text-[10px] tracking-[0.25em] uppercase font-semibold">
-                Affordable Excellence
+                In-Office Membership Plans
               </span>
             </div>
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-primary" />
@@ -103,10 +103,10 @@ export default function TrustStats() {
               letterSpacing: "-0.03em",
             }}
           >
-            No Insurance?{" "}
+            No Dental Insurance?{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-br from-primary via-primary-dark to-primary bg-clip-text text-transparent italic font-normal">
-                No Problem!
+                No Problem.
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -131,7 +131,9 @@ export default function TrustStats() {
             No Dental Insurance?
           </span>
           <p className="text-navy font-medium text-sm md:text-base leading-relaxed">
-            We are dedicated to making premium dental care affordable for patients with <strong className="text-navy-dark">no dental insurance</strong>. Our custom In-Office Member Plans provide comprehensive preventive coverage and generous discounts on treatments with absolutely no deductibles, no maximums, and no waiting periods. Keeping your teeth healthy has never been this simple.
+            Our In-Office Membership Plans make quality dental care affordable
+            for Southampton families without insurance — with no deductibles, no
+            annual maximums, and no waiting periods.
           </p>
         </motion.div>
 
@@ -197,7 +199,7 @@ export default function TrustStats() {
               </div>
 
               <Link
-                href="#contact"
+                href="/specials"
                 className={`block text-center w-full py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   plan.popular
                     ? "bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary-light hover:scale-[1.02] active:scale-[0.98]"

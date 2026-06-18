@@ -212,11 +212,6 @@ const data = {
     { label: "Cosmetic Dentistry", href: "/cosmetic-dentistry" },
     { label: "Clear Correct", href: "/cosmetic-dentistry/clear-correct" },
     { label: "Teeth Whitening", href: "/cosmetic-dentistry/teeth-whitening" },
-    { label: "Specials", href: "/specials" },
-  ],
-  externalLinks: [
-    { label: "https://www.invisalign.com", href: "https://www.invisalign.com" },
-    { label: "https://aaoinfo.org", href: "https://aaoinfo.org" },
   ],
   areasServedLine:
     "Providing Invisalign clear aligners for patients in Southampton, Richboro, Warminster, Newtown, Holland, Feasterville, and Huntingdon Valley, PA.",

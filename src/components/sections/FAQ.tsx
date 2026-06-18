@@ -5,17 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus,
   HelpCircle,
-  MessageCircle,
-  Phone,
-  Mail,
-  Clock,
-  ArrowUpRight,
   CreditCard,
   Stethoscope,
   AlertCircle,
   Users,
   CalendarCheck,
-  Sparkles,
 } from "lucide-react";
 
 type Category = "Insurance" | "Treatments" | "Emergency" | "Family" | "Booking";
@@ -30,34 +24,29 @@ const categoryMeta: Record<Category, { icon: typeof CreditCard }> = {
 
 const faqs: { category: Category; q: string; a: string }[] = [
   {
-    category: "Insurance",
-    q: "What insurance plans do you accept?",
-    a: "We accept most major dental insurance plans including Delta Dental, Cigna, Aetna, MetLife, and many more. Our team will help verify your coverage and maximize your benefits. We also offer flexible financing options for patients without insurance.",
-  },
-  {
-    category: "Treatments",
-    q: "How does the Invisalign process work?",
-    a: "Your Invisalign journey begins with a digital 3D scan of your teeth. We create a custom treatment plan with clear aligners that gradually straighten your teeth. You'll switch to new aligners every 1–2 weeks, with check-ups every 6–8 weeks. Most treatments are completed in 6–18 months.",
-  },
-  {
-    category: "Emergency",
-    q: "Do you offer emergency dental care?",
-    a: "Yes — we offer same-day emergency appointments for urgent dental needs including severe toothaches, broken teeth, knocked-out teeth, and dental infections. Call our emergency line and we'll get you seen as quickly as possible.",
-  },
-  {
-    category: "Treatments",
-    q: "How long does professional teeth whitening last?",
-    a: "Professional teeth whitening results typically last 1–3 years, depending on your diet and oral hygiene habits. We offer both in-office whitening for immediate results and custom take-home kits for gradual whitening. Touch-up treatments can extend your results.",
-  },
-  {
-    category: "Family",
-    q: "At what age should my child first visit the dentist?",
-    a: "We recommend your child's first dental visit by their first birthday or within six months of their first tooth appearing. Early visits help establish good oral health habits and allow us to monitor development. Our team is experienced with young patients and creates a warm, welcoming environment so children feel comfortable and even excited about dental visits.",
+    category: "Booking",
+    q: "Where is Hampton Family Dental located?",
+    a: "Hampton Family Dental is located at 283 Second Street Pike, Suite 140, Southampton, PA 18966 — the same trusted location formerly known as Brenner Dental Group. We welcome patients from Southampton, Richboro, Warminster, Newtown, and the surrounding Bucks County area.",
   },
   {
     category: "Booking",
-    q: "How do I schedule an appointment?",
-    a: "You can schedule by calling us at (215) 357-2224, filling out the contact form, or using our online booking system. We offer flexible scheduling — including early-morning and evening appointments — to fit your routine.",
+    q: "Is Hampton Family Dental accepting new patients?",
+    a: "Yes! We are currently welcoming new patients of all ages. You can book your first visit online or call us at (215) 357-2224, and our team will guide you through the simple new-patient process.",
+  },
+  {
+    category: "Family",
+    q: "Is Hampton Family Dental the same as Brenner Dental Group?",
+    a: "Yes. Hampton Family Dental is the same practice and team, formerly known as Brenner Dental Group, at the same Southampton location. The name has changed, but our commitment to gentle, high-quality care remains the same, now with Dr. Jeffrey Brenner and Dr. Keyur Dudhat.",
+  },
+  {
+    category: "Insurance",
+    q: "Do you offer dental care if I don't have insurance?",
+    a: "Absolutely. Our In-Office Membership Plans are designed for patients without dental insurance, offering preventive care and meaningful discounts with no deductibles, no annual maximums, and no waiting periods. Visit our Specials page to learn more.",
+  },
+  {
+    category: "Emergency",
+    q: "Do you see dental emergencies the same day?",
+    a: "Yes — we keep room in our schedule for urgent care and offer same-day emergency appointments whenever possible. If you're in pain, call us right away at (215) 357-2224.",
   },
 ];
 
