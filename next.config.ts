@@ -81,6 +81,11 @@ const nextConfig: NextConfig = {
         destination: "/cosmetic-dentistry/teeth-whitening",
         permanent: true,
       },
+      {
+        source: "/dental-bonding",
+        destination: "/cosmetic-dentistry/dental-bonding",
+        permanent: true,
+      },
     ];
   },
 };

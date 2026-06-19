@@ -1,78 +1,167 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import DentalBondingClient from "./DentalBondingClient";
 
-
-const data = {
-    eyebrow: "Cosmetic Dentistry",
-    title: "Dental Bonding in Southampton, PA",
-    intro: "Correct chipped, cracked, decayed, or gapped teeth in a single visit. Dental bonding uses a tooth-colored composite resin to rebuild and reshape damaged teeth, delivering an immediate, natural-looking improvement.",
-    duration: "30–60 minutes per tooth",
-    visits: "1 visit",
-    image: "/images/cosmetic_smile_1779858128482.webp",
-    whatIs: {
-      title: "What is Cosmetic Dental Bonding?",
-      text: "Dental bonding is a fast, conservative cosmetic procedure. Unlike crowns or veneers, which require significant enamel removal and laboratory fabrication, dental bonding is performed directly in our office. Dr. Brenner or Dr. Dudhat applies a pliable, tooth-colored composite resin to your tooth, shapes it to correct imperfections, and hardens it using a specialized light. The material is then polished to match your natural enamel.",
-    },
-    benefits: [
-      "Completed in a single visit with immediate results",
-      "Requires minimal or no removal of natural tooth enamel",
-      "Highly affordable cosmetic dental procedure",
-      "Blends in invisibly with your natural teeth",
-    ],
-    processSteps: [
-      {
-        title: "Color Matching & Preparation",
-        text: "We select a shade of composite resin that matches your tooth color. We gently etch the enamel surface to ensure a secure bond.",
-      },
-      {
-        title: "Applying the Resin",
-        text: "We apply a liquid bonding agent followed by the putty-like composite resin, molding and shaping it to correct chips or gaps.",
-      },
-      {
-        title: "Light Curing",
-        text: "Once the shape is perfected, we use a specialized curing light to harden the composite resin in seconds.",
-      },
-      {
-        title: "Polishing & Refinement",
-        text: "We refine the shape to match your bite and polish it to a smooth, natural sheen, making the restoration invisible.",
-      },
-    ],
-    candidacy: {
-      text: "Dental bonding is an excellent choice for patients with minor chips, small gaps, or slight tooth discoloration who want a quick, non-invasive fix.",
-      checks: [
-        "Chipped, cracked, or worn tooth edges",
-        "Small gaps or spaces between front teeth",
-        "Minor discoloration or spots on enamel",
-        "Healthy teeth with sufficient support structure",
-      ],
-    },
-    costInfo: {
-      text: "Dental bonding is one of the most cost-effective cosmetic dental treatments. Some insurance plans cover bonding if it is performed to treat active decay or structural damage.",
-      financingNote: "Hampton Dental Wellness members get 15% off treatments. We offer flexible checkout options.",
-    },
-    faqs: [
-      {
-        q: "How long does dental bonding last?",
-        a: "Composite bonding is durable but not as strong as porcelain veneers or crowns. With good home care and regular cleanings, bonding typically lasts between 3 and 10 years before needing touch-ups or replacement.",
-      },
-      {
-        q: "Does bonded resin stain?",
-        a: "Yes. While resistant, composite resin is more porous than dental porcelain and can absorb stains over time. We recommend limiting coffee, tea, and tobacco, and maintaining regular cleanings to keep it bright.",
-      },
-    ],
-    relatedServices: [
-      { label: "Teeth Whitening", href: "/cosmetic-dentistry/teeth-whitening" },
-      { label: "Porcelain Veneers", href: "/cosmetic-dentistry/porcelain-veneers" },
-      { label: "Smile Makeover", href: "/cosmetic-dentistry/smile-makeover" },
-    ],
-    breadcrumbs: [
-      { label: "Cosmetic Dentistry", href: "/cosmetic-dentistry" },
-      { label: "Dental Bonding" },
-    ],
+export const metadata: Metadata = {
+  title: "Dental Bonding in Southampton, PA | Hampton Family Dental",
+  description:
+    "Dental bonding in Southampton, PA — fix chips, gaps & discoloration in one visit with natural-looking composite. Affordable cosmetic care. (215) 357-2224.",
+  keywords: [
+    "dental bonding southampton pa",
+    "teeth bonding southampton",
+    "composite bonding southampton",
+    "dental bonding cost southampton",
+    "chipped tooth repair 18966",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/cosmetic-dentistry/dental-bonding`,
+  },
+  openGraph: {
+    title: "Dental Bonding in Southampton, PA | Hampton Family Dental",
+    description:
+      "Dental bonding in Southampton, PA — fix chips, gaps & discoloration in one visit with natural-looking composite. Affordable cosmetic care. (215) 357-2224.",
+    url: `${SITE_URL}/cosmetic-dentistry/dental-bonding`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dental Bonding in Southampton, PA | Hampton Family Dental",
+    description:
+      "Dental bonding in Southampton, PA — fix chips, gaps & discoloration in one visit with natural-looking composite. Affordable cosmetic care. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function DentalBondingPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Dental Bonding",
+    "description": "Tooth-colored composite dental bonding that repairs chips, gaps, and discoloration in a single visit, for patients in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does dental bonding cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bonding is one of the most affordable cosmetic treatments - usually far less than veneers or crowns, often in one visit. Cost depends on how many teeth. We give you a clear price first and accept CareCredit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does dental bonding last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With good care, bonding typically lasts 3 to 10 years before it may need a touch-up. Avoiding habits like biting nails or ice and keeping up with checkups helps it last."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is bonding or a veneer better?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bonding is faster, cheaper, and reversible - great for small fixes. Veneers cost more and are permanent but offer a more dramatic, longer-lasting result. We'll recommend the right one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does dental bonding hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually not - most bonding requires no drilling and no anesthesia, so there's little to no discomfort. It's one of the gentlest cosmetic treatments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can bonding fix a chipped tooth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - bonding is a fast, natural-looking way to repair a chipped or cracked tooth, often in a single visit. We color-match the composite so the repair blends in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does bonding stain over time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Composite can pick up stains from coffee, tea, wine, and smoking more than natural enamel. Good hygiene and limiting staining habits keep it fresh; we can polish or refresh it."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cosmetic Dentistry",
+        "item": `${SITE_URL}/cosmetic-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dental Bonding",
+        "item": `${SITE_URL}/cosmetic-dentistry/dental-bonding`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <DentalBondingClient />
+    </>
+  );
 }
