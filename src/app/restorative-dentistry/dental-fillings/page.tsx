@@ -1,74 +1,167 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import DentalFillingsClient from "./DentalFillingsClient";
 
-
-const data = {
-    eyebrow: "Restorative Dentistry",
-    title: "Dental Fillings in Southampton, PA",
-    intro: "Treat cavities and repair minor tooth decay or chips with our modern, metal-free composite dental fillings. Crafted from composite resin, these fillings match the shade of your teeth to preserve both structure and aesthetics.",
-    duration: "30–60 minutes",
-    visits: "1 visit",
-    image: "/images/cosmetic_smile_1779858128482.webp",
-    whatIs: {
-      title: "What is a Composite Dental Filling?",
-      text: "A dental filling is a restoration used to repair a tooth damaged by decay or wear. After removing the decayed structure, the cavity is cleaned and filled with a biocompatible resin. Unlike older silver amalgam fillings, composite resin bonds directly to your enamel, requiring less tooth structure removal and providing a completely natural appearance.",
-    },
-    benefits: [
-      "Tooth-colored resin blends in invisibly",
-      "Bonds directly to enamel, strengthening the tooth",
-      "Requires less enamel removal than silver fillings",
-      "Completely metal-free and mercury-free",
-    ],
-    processSteps: [
-      {
-        title: "Numbing & Prep",
-        text: "We apply a localized numbing gel and anesthetic to ensure you do not feel anything. The decayed or soft tooth structure is gently cleaned away.",
-      },
-      {
-        title: "Applying the Resin",
-        text: "The composite resin is layered into the cavity. Each layer is cured and hardened instantly using a special dental curing light.",
-      },
-      {
-        title: "Shaping & Polishing",
-        text: "Once the cavity is filled, we shape the composite resin to match your natural bite alignment and polish it to a smooth, natural finish.",
-      },
-    ],
-    candidacy: {
-      text: "Composite fillings are perfect for treating mild to moderate cavities, replacing old failing fillings, or repairing minor cracks and chips.",
-      checks: [
-        "Mild to moderate cavities",
-        "Sensitivities to cold/sweet due to decay",
-        "Chipped or worn tooth edges",
-        "Replacing dark, unsightly metal fillings",
-      ],
-    },
-    costInfo: {
-      text: "Most dental insurance policies cover between 80% and 100% of dental filling costs because they are considered a basic preventive restoration. Out-of-pocket costs are very low.",
-      financingNote: "Hampton Dental Wellness members get 15% off. Flexible checkout payments are accepted.",
-    },
-    faqs: [
-      {
-        q: "How long after a filling can I eat?",
-        a: "Since we cure the composite resin instantly with a specialized UV light, the filling is fully hardened when you leave. You can eat right away, though we recommend waiting until the numbness wears off to avoid biting your cheek.",
-      },
-      {
-        q: "Should I replace my old metal fillings?",
-        a: "If your silver fillings are cracked, leaking, or showing decay underneath, they should be replaced. If they are in good shape, we can discuss replacing them for cosmetic reasons.",
-      },
-    ],
-    relatedServices: [
-      { label: "Dental Crowns", href: "/restorative-dentistry/dental-crowns" },
-      { label: "Dental Checkups", href: "/general-dentistry/checkups-and-x-rays" },
-      { label: "Oral Hygiene", href: "/general-dentistry/oral-hygiene" },
-    ],
-    breadcrumbs: [
-      { label: "Restorative Dentistry", href: "/restorative-dentistry" },
-      { label: "Dental Fillings" },
-    ],
+export const metadata: Metadata = {
+  title: "Tooth-Colored Dental Fillings in Southampton, PA | Hampton",
+  description:
+    "Tooth-colored dental fillings in Southampton, PA — repair cavities with natural-looking composite. Same-visit care. (215) 357-2224.",
+  keywords: [
+    "dental fillings southampton pa",
+    "tooth colored fillings southampton",
+    "cavity filling southampton",
+    "composite filling southampton",
+    "tooth filling cost 18966",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/restorative-dentistry/dental-fillings`,
+  },
+  openGraph: {
+    title: "Tooth-Colored Dental Fillings in Southampton, PA | Hampton",
+    description:
+      "Tooth-colored dental fillings in Southampton, PA — repair cavities with natural-looking composite. Same-visit care. (215) 357-2224.",
+    url: `${SITE_URL}/restorative-dentistry/dental-fillings`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tooth-Colored Dental Fillings in Southampton, PA | Hampton",
+    description:
+      "Tooth-colored dental fillings in Southampton, PA — repair cavities with natural-looking composite. Same-visit care. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function DentalFillingsPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Dental Filling",
+    "description": "Tooth-colored composite dental fillings that repair cavities and restore decayed teeth, for patients in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a dental filling cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the size and location of the cavity and the material. We give you a clear estimate first. Most plans cover fillings well, often 80-100%, and we accept CareCredit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are tooth-colored fillings better than metal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most patients, yes - composite bonds to the tooth, matches your natural color, removes less healthy tooth, and contains no metal. We use tooth-colored fillings as our standard."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if I have a cavity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cavities often start painlessly. Watch for a toothache, sensitivity to hot/cold/sweet, a visible hole or dark spot, or food catching in one spot. Regular checkups catch them early."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does getting a filling hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No - we numb the tooth first, so you'll feel pressure but not pain. The visit is usually quick, and mild sensitivity afterward fades within a day or two."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do fillings last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tooth-colored fillings typically last 7 to 10 years or more with good care. We check your fillings at each visit and replace them if they wear or chip."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I leave a cavity untreated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Decay keeps spreading - a small cavity can grow into one needing a crown, or reach the nerve and require a root canal. Treating it early with a filling is faster and less expensive."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Restorative Dentistry",
+        "item": `${SITE_URL}/restorative-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dental Fillings",
+        "item": `${SITE_URL}/restorative-dentistry/dental-fillings`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <DentalFillingsClient />
+    </>
+  );
 }

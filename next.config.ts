@@ -31,6 +31,16 @@ const nextConfig: NextConfig = {
         destination: "/restorative-dentistry/dental-bridges",
         permanent: true,
       },
+      {
+        source: "/dental-fillings",
+        destination: "/restorative-dentistry/dental-fillings",
+        permanent: true,
+      },
+      {
+        source: "/fillings",
+        destination: "/restorative-dentistry/dental-fillings",
+        permanent: true,
+      },
     ];
   },
 };
