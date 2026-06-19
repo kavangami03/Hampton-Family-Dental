@@ -1,82 +1,167 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import DenturesClient from "./DenturesClient";
 
-
-const data = {
-    eyebrow: "Restorative Dentistry",
-    title: "Full & Partial Dentures in Southampton, PA",
-    intro: "Restore your smile and reclaim your quality of life with our premium, custom-fitted dentures. Our dentures are designed to fit comfortably, support your facial structure, and blend naturally with your appearance.",
-    duration: "3–6 weeks",
-    visits: "4–5 visits",
-    image: "/images/about_storytelling_1779858491119.webp",
-    whatIs: {
-      title: "What are Modern Dentures?",
-      text: "Dentures are removable dental appliances used to replace missing teeth and surrounding tissues. **Full dentures** are used when all teeth in an arch are missing, sitting comfortably on the gum tissue. **Partial dentures** are used when some natural teeth remain, anchoring to existing structures using discrete clasps. Modern materials ensure they are lightweight, comfortable, and look highly realistic.",
-    },
-    benefits: [
-      "Restores your ability to chew and speak normally",
-      "Supports lips & cheeks, preventing facial sagging",
-      "Custom-shaded to match your natural gums & teeth",
-      "Cost-effective solution for multiple missing teeth",
-    ],
-    processSteps: [
-      {
-        title: "Initial Consultation & Scans",
-        text: "We evaluate your gums and remaining teeth. We capture highly detailed impressions to map your mouth.",
-      },
-      {
-        title: "Bite Registration & Wax Model Mockups",
-        text: "We measure your jaw alignment and create wax models of your dentures, allowing you to preview the fit, shape, and tooth color.",
-      },
-      {
-        title: "Fitting & Adjustments",
-        text: "Once the lab constructs the final dentures, we place them, check for sore spots, adjust bite alignment, and ensure maximum comfort.",
-      },
-      {
-        title: "Follow-Up Tune-Ups",
-        text: "As you get used to chewing and speaking, we schedule brief checks to perform minor adjustments and polish your dentures.",
-      },
-    ],
-    candidacy: {
-      text: "Dentures are ideal for patients who have lost many or all of their teeth due to decay, gum disease, or trauma, and are looking for a reliable, non-surgical restoration.",
-      checks: [
-        "Significant or total tooth loss in an arch",
-        "Healthy gum tissues and jawbone ridge support",
-        "Looking for a cost-effective, non-surgical option",
-        "Replacing worn-out, unstable existing dentures",
-      ],
-    },
-    costInfo: {
-      text: "Dentures are a highly affordable restoration for extensive tooth loss. Most insurance policies cover partial and full dentures under major restorative benefits (typically 50%).",
-      financingNote: "Hampton Dental Wellness members get 15% off. CareCredit financing can break payments into low monthly installments.",
-    },
-    faqs: [
-      {
-        q: "How long does it take to get used to dentures?",
-        a: "It usually takes 4 to 8 weeks to feel comfortable eating and speaking. We recommend starting with soft foods cut into small pieces and practicing reading aloud to train your tongue.",
-      },
-      {
-        q: "Can I sleep with my dentures in?",
-        a: "We highly recommend removing your dentures at night. This allows your gums and bone tissues to rest and breathe, preventing fungal infections and keeping your mouth healthy.",
-      },
-      {
-        q: "What is an implant-supported denture?",
-        a: "We can place 2 to 4 dental implants in your jawbone and snap your denture onto them. This keeps the denture completely locked into place, eliminating slipping and the need for adhesives.",
-      },
-    ],
-    relatedServices: [
-      { label: "Dental Implants", href: "/restorative-dentistry/dental-implants" },
-      { label: "Dental Bridges", href: "/restorative-dentistry/dental-bridges" },
-      { label: "Dental Crowns", href: "/restorative-dentistry/dental-crowns" },
-    ],
-    breadcrumbs: [
-      { label: "Restorative Dentistry", href: "/restorative-dentistry" },
-      { label: "Dentures" },
-    ],
+export const metadata: Metadata = {
+  title: "Dentures in Southampton, PA | Full & Partial | Hampton",
+  description:
+    "Custom full, partial & implant-supported dentures in Southampton, PA — natural-looking, comfortable, secure. (215) 357-2224.",
+  keywords: [
+    "dentures southampton pa",
+    "partial dentures southampton",
+    "implant supported dentures southampton",
+    "dentures cost southampton",
+    "permanent dentures 18966",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/restorative-dentistry/dentures`,
+  },
+  openGraph: {
+    title: "Dentures in Southampton, PA | Full & Partial | Hampton",
+    description:
+      "Custom full, partial & implant-supported dentures in Southampton, PA — natural-looking, comfortable, secure. (215) 357-2224.",
+    url: `${SITE_URL}/restorative-dentistry/dentures`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dentures in Southampton, PA | Full & Partial | Hampton",
+    description:
+      "Custom full, partial & implant-supported dentures in Southampton, PA — natural-looking, comfortable, secure. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function DenturesPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Dentures",
+    "description": "Custom full, partial, and implant-supported dentures that replace missing teeth comfortably and naturally, for patients in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much do dentures cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the type - full vs partial, standard vs premium, and whether they're implant-supported. We give you a clear estimate first. Many plans cover a portion, we accept CareCredit, and members get 15% off."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between full and partial dentures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full dentures replace all the teeth in an arch when no natural teeth remain; partial dentures fill in several missing teeth while your remaining natural teeth stay in place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are permanent or implant-supported dentures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Implant-supported dentures snap securely onto dental implants instead of resting on the gums - no slipping or adhesives, much more stable, and they help preserve jawbone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you repair or reline dentures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If your dentures feel loose, crack, or no longer fit, we repair and reline them rather than having you live with discomfort."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to get used to dentures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most people adjust within a few weeks - speaking and eating get easier as your mouth adapts. We'll guide you through the transition and make adjustments for comfort."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get dentures the same day my teeth are removed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - immediate dentures are placed the same day your teeth are extracted, so you're never without a smile. They're relined or replaced after your gums heal for the best fit."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Restorative Dentistry",
+        "item": `${SITE_URL}/restorative-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dentures",
+        "item": `${SITE_URL}/restorative-dentistry/dentures`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <DenturesClient />
+    </>
+  );
 }

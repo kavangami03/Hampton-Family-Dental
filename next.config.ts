@@ -46,6 +46,11 @@ const nextConfig: NextConfig = {
         destination: "/restorative-dentistry/root-canal",
         permanent: true,
       },
+      {
+        source: "/dentures",
+        destination: "/restorative-dentistry/dentures",
+        permanent: true,
+      },
     ];
   },
 };
