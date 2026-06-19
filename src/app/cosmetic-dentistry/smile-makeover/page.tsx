@@ -1,78 +1,167 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import SmileMakeoverClient from "./SmileMakeoverClient";
 
-
-const data = {
-    eyebrow: "Cosmetic Dentistry",
-    title: "Smile Makeovers in Southampton, PA",
-    intro: "Rebuild, restore, and transform your entire smile. A smile makeover is a comprehensive, personalized plan combining multiple cosmetic and restorative treatments to achieve the symmetrical, radiant smile you have always wanted.",
-    duration: "Varies (1–6 months)",
-    visits: "Varies by plan",
-    image: "/images/service_veneers_1779858461216.webp",
-    whatIs: {
-      title: "What is a Smile Makeover?",
-      text: "A smile makeover is not a single treatment; it is a customized dental treatment plan designed to address all your cosmetic goals. Dr. Brenner and Dr. Dudhat evaluate your teeth alignment, spacing, color, shape, and gumline symmetry. Your plan may combine teeth whitening, porcelain veneers, dental implants, Invisalign, and bonding. Using advanced digital diagnostics, we plan the timeline and map out your transformation.",
-    },
-    benefits: [
-      "Custom-tailored plan matching your facial structure and goals",
-      "Combines multiple treatments for a comprehensive transformation",
-      "Restores missing teeth and aligns crooked teeth",
-      "Boosts self-confidence and youthfulness significantly",
-    ],
-    processSteps: [
-      {
-        title: "Aesthetic Design & 3D Scans",
-        text: "We discuss your goals, capture digital x-rays, and use 3D scanners to design your custom smile line and plan your treatment sequence.",
-      },
-      {
-        title: "Health Prep & Alignment",
-        text: "We treat any underlying gum issues or cavities first. If alignment is needed, we start clear aligner therapy (Invisalign or Clear Correct).",
-      },
-      {
-        title: "Restorations & Whitening",
-        text: "We perform teeth whitening, place porcelain veneers, insert dental implants, or perform cosmetic bonding to complete your smile.",
-      },
-      {
-        title: "Final Reveal & Adjustments",
-        text: "We fit all restorations, verify your bite is comfortable, and polish the finished work to ensure a stunning, long-lasting smile.",
-      },
-    ],
-    candidacy: {
-      text: "A smile makeover is perfect for patients with multiple cosmetic concerns, such as missing, crooked, stained, chipped, or worn teeth.",
-      checks: [
-        "Multiple missing, chipped, or worn teeth",
-        "Significant alignment, crowding, or spacing issues",
-        "Severe, permanent staining resistant to bleaching",
-        "Looking for a complete, life-changing smile upgrade",
-      ],
-    },
-    costInfo: {
-      text: "The cost depends on the specific treatments in your custom plan. While cosmetic services are usually elective, any restorative treatments (implants, crowns) may be covered by insurance.",
-      financingNote: "We partner with CareCredit to offer low-interest monthly payments, making your smile transformation affordable.",
-    },
-    faqs: [
-      {
-        q: "How long does a smile makeover take?",
-        a: "The timeline depends on the treatments selected. If you only need veneers and teeth whitening, your makeover can be completed in 2 to 3 weeks. If Invisalign or implants are required, it may take 6 to 12 months.",
-      },
-      {
-        q: "How do I maintain my smile makeover?",
-        a: "Maintain excellent home oral hygiene (brushing and flossing twice daily), visit us every 6 months for professional cleanings, and wear a nightguard if you grind your teeth to protect your new porcelain restorations.",
-      },
-    ],
-    relatedServices: [
-      { label: "Porcelain Veneers", href: "/cosmetic-dentistry/porcelain-veneers" },
-      { label: "Invisalign", href: "/cosmetic-dentistry/invisalign" },
-      { label: "Dental Implants", href: "/restorative-dentistry/dental-implants" },
-    ],
-    breadcrumbs: [
-      { label: "Cosmetic Dentistry", href: "/cosmetic-dentistry" },
-      { label: "Smile Makeover" },
-    ],
+export const metadata: Metadata = {
+  title: "Smile Makeover in Southampton, PA | Hampton Family Dental",
+  description:
+    "Custom smile makeovers in Southampton, PA — combine veneers, whitening, bonding & alignment into one personalized plan for your dream smile. (215) 357-2224.",
+  keywords: [
+    "smile makeover southampton pa",
+    "cosmetic dentistry southampton",
+    "full smile transformation southampton",
+    "smile design southampton",
+    "smile makeover cost 18966",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/cosmetic-dentistry/smile-makeover`,
+  },
+  openGraph: {
+    title: "Smile Makeover in Southampton, PA | Hampton Family Dental",
+    description:
+      "Custom smile makeovers in Southampton, PA — combine veneers, whitening, bonding & alignment into one personalized plan for your dream smile. (215) 357-2224.",
+    url: `${SITE_URL}/cosmetic-dentistry/smile-makeover`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Smile Makeover in Southampton, PA | Hampton Family Dental",
+    description:
+      "Custom smile makeovers in Southampton, PA — combine veneers, whitening, bonding & alignment into one personalized plan for your dream smile. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function SmileMakeoverPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Smile Makeover",
+    "description": "Custom smile makeovers combining veneers, whitening, bonding, and alignment into one personalized cosmetic plan, for patients in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a smile makeover cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's fully customized, so cost depends on the treatments in your plan - from a whitening-and-bonding refresh to full veneers. We give you a clear, itemized estimate and offer CareCredit financing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in a smile makeover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Whatever your smile needs - it can combine whitening, veneers, bonding, clear aligners, and crowns or implants. We design a personalized plan around your goals and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a smile makeover take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the treatments - a whitening-and-bonding refresh can be quick, while a plan involving alignment or implants takes longer. We'll map out a clear timeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see my new smile before treatment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - we often use digital smile design or previews so you can see the expected result before we begin, and adjust the plan together until you love it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I do my smile makeover in phases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Many patients phase treatment over time to fit their schedule and budget. We'll prioritize the steps that matter most and plan the rest at your pace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will a smile makeover look natural?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - our goal is a result that looks like the best version of your own smile, not fake. We match shape and shade to your face so it looks completely natural."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cosmetic Dentistry",
+        "item": `${SITE_URL}/cosmetic-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Smile Makeover",
+        "item": `${SITE_URL}/cosmetic-dentistry/smile-makeover`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <SmileMakeoverClient />
+    </>
+  );
 }

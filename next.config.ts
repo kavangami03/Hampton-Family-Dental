@@ -86,6 +86,11 @@ const nextConfig: NextConfig = {
         destination: "/cosmetic-dentistry/dental-bonding",
         permanent: true,
       },
+      {
+        source: "/smile-makeover",
+        destination: "/cosmetic-dentistry/smile-makeover",
+        permanent: true,
+      },
     ];
   },
 };
