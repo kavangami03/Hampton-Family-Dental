@@ -91,6 +91,16 @@ const nextConfig: NextConfig = {
         destination: "/cosmetic-dentistry/smile-makeover",
         permanent: true,
       },
+      {
+        source: "/our-story",
+        destination: "/about/our-story",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/about/our-story",
+        permanent: true,
+      },
     ];
   },
 };
