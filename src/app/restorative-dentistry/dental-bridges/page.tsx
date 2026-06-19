@@ -1,74 +1,167 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import DentalBridgesClient from "./DentalBridgesClient";
 
-
-const data = {
-    eyebrow: "Restorative Dentistry",
-    title: "Dental Bridges in Southampton, PA",
-    intro: "Bridge the gap left by missing teeth with our custom porcelain dental bridges. A bridge restores your ability to chew and speak properly, prevents surrounding teeth from shifting, and completes your smile seamlessly.",
-    duration: "1–2 weeks",
-    visits: "2 visits",
-    image: "/images/clinic_interior_1779858062605.webp",
-    whatIs: {
-      title: "What is a Dental Bridge?",
-      text: "A dental bridge is a fixed dental restoration used to replace one or more missing teeth. It consists of two custom crowns placed on the anchor teeth (abutment teeth) on either side of the gap, with one or more artificial teeth (pontics) suspended between them. Once bonded into place, the bridge looks and functions like your natural teeth.",
-    },
-    benefits: [
-      "Fills empty spaces naturally",
-      "Restores normal chewing and speaking",
-      "Prevents surrounding teeth from tilting or shifting",
-      "Maintains natural facial contours",
-    ],
-    processSteps: [
-      {
-        title: "Preparing the Abutment Teeth",
-        text: "The teeth on either side of the space are gently reshaped to act as supports for the bridge crowns. Digital scans are captured to design the bridge.",
-      },
-      {
-        title: "Temporary Bridge Placement",
-        text: "We fit a temporary bridge to protect the prepared teeth and gums while our dental lab constructs the final porcelain restoration.",
-      },
-      {
-        title: "Bonding the Custom Bridge",
-        text: "At your second visit, we fit the final bridge, check your bite and alignment, make any minor modifications, and cement it securely in place.",
-      },
-    ],
-    candidacy: {
-      text: "Bridges are an excellent choice for patients who are missing one or more consecutive teeth and have healthy anchor teeth adjacent to the gap.",
-      checks: [
-        "One or more missing consecutive teeth",
-        "Healthy neighboring anchor teeth",
-        "Good support bone structure",
-        "Commitment to thorough flossing beneath the bridge",
-      ],
-    },
-    costInfo: {
-      text: "Dental bridges are generally covered by dental insurance up to 50% to 80% of the cost. They are a cost-effective alternative to implants when dental implants are not clinically viable.",
-      financingNote: "Hampton Dental Wellness members get 15% off. CareCredit financing can cover out-of-pocket costs.",
-    },
-    faqs: [
-      {
-        q: "How do I clean under a dental bridge?",
-        a: "Since the bridge is one solid piece, you cannot floss regularly between the artificial teeth. You will need to use a threader floss, interdental brushes, or a water flosser to clean beneath the bridge and protect the supporting teeth.",
-      },
-      {
-        q: "What is the difference between a bridge and an implant?",
-        a: "A bridge anchors to your existing teeth, requiring them to be reshaped. An implant is placed directly into the jawbone, leaving surrounding teeth untouched. Implants last longer but require a surgical procedure.",
-      },
-    ],
-    relatedServices: [
-      { label: "Dental Implants", href: "/restorative-dentistry/dental-implants" },
-      { label: "Dental Crowns", href: "/restorative-dentistry/dental-crowns" },
-      { label: "Dentures", href: "/restorative-dentistry/dentures" },
-    ],
-    breadcrumbs: [
-      { label: "Restorative Dentistry", href: "/restorative-dentistry" },
-      { label: "Dental Bridges" },
-    ],
+export const metadata: Metadata = {
+  title: "Dental Bridges in Southampton, PA | Hampton Family Dental",
+  description:
+    "Dental bridges in Southampton, PA — replace one or more missing teeth with natural-looking fixed porcelain restorations. (215) 357-2224.",
+  keywords: [
+    "dental bridges southampton pa",
+    "dental bridge cost southampton",
+    "types of dental bridges",
+    "fixed bridge southampton",
+    "replace missing teeth 18966",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/restorative-dentistry/dental-bridges`,
+  },
+  openGraph: {
+    title: "Dental Bridges in Southampton, PA | Hampton Family Dental",
+    description:
+      "Dental bridges in Southampton, PA — replace one or more missing teeth with natural-looking fixed porcelain restorations. (215) 357-2224.",
+    url: `${SITE_URL}/restorative-dentistry/dental-bridges`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dental Bridges in Southampton, PA | Hampton Family Dental",
+    description:
+      "Dental bridges in Southampton, PA — replace one or more missing teeth with natural-looking fixed porcelain restorations. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function DentalBridgesPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Dental Bridge",
+    "description": "Fixed dental bridges that replace one or more missing teeth with natural-looking porcelain restorations, for patients in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a dental bridge cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on how many teeth are replaced and the material. We give you a clear estimate first. Most insurance covers a portion, we accept CareCredit, and members get 15% off."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the types of dental bridges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The main types are traditional, cantilever, Maryland, and implant-supported bridges. We recommend the best option based on where the gap is and the health of your surrounding teeth."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a bridge or an implant better?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A bridge is faster and surgery-free but relies on the neighboring teeth and doesn't prevent bone loss. An implant replaces the root and stands alone but costs more upfront. We'll help you choose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do dental bridges last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With good oral hygiene and regular checkups, most bridges last 10 to 15 years or more. Keeping the supporting teeth and gums healthy is key."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I clean under a dental bridge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use a floss threader or interdental brush to clean beneath the false tooth daily, along with normal brushing and flossing. We'll show you the technique."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does getting a bridge hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No - the teeth are numbed during preparation, so you'll feel pressure but not pain. Any mild sensitivity afterward is temporary."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Restorative Dentistry",
+        "item": `${SITE_URL}/restorative-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dental Bridges",
+        "item": `${SITE_URL}/restorative-dentistry/dental-bridges`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <DentalBridgesClient />
+    </>
+  );
 }
