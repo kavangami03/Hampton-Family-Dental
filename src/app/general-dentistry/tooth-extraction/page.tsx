@@ -1,78 +1,187 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import ToothExtractionClient from "./ToothExtractionClient";
 
-
-const data = {
-    eyebrow: "General Dentistry",
-    title: "Tooth Extractions in Southampton, PA",
-    intro: "Remove damaged, decayed, or crowded teeth safely and comfortably. Dr. Brenner and Dr. Dudhat perform gentle tooth extractions, including wisdom teeth removals, utilizing advanced local anesthetics and comfortable care practices.",
-    duration: "45–90 minutes",
-    visits: "1 visit",
-    image: "/images/about_storytelling_1779858491119.webp",
-    whatIs: {
-      title: "When is a Tooth Extraction Necessary?",
-      text: "While our primary goal is always to preserve your natural teeth, sometimes extraction is the healthiest option for your overall smile. Extractions are required when a tooth is severely fractured, has advanced decay that cannot be treated with a root canal, suffers from advanced periodontal bone loss, or when wisdom teeth are impacted and crowding other teeth. We prioritize your comfort throughout the process.",
-    },
-    benefits: [
-      "Stops chronic tooth pain and prevents infections from spreading",
-      "Eliminates crowding and prepares jaws for orthodontics",
-      "Prevents damage to adjacent teeth from impacted wisdom teeth",
-      "Performs extractions under local anesthesia for a painless procedure",
-    ],
-    processSteps: [
-      {
-        title: "X-Ray Assessment",
-        text: "We capture high-definition digital x-rays to examine the tooth roots, bone density, and plan the extraction route.",
-      },
-      {
-        title: "Local Anesthesia Numbing",
-        text: "We administer local anesthesia to completely numb the area, ensuring you feel pressure but no pain during the extraction.",
-      },
-      {
-        title: "Gentle Tooth Removal",
-        text: "Using specialized dental instruments, the tooth is carefully freed from the socket and gently removed to protect surrounding bone.",
-      },
-      {
-        title: "Healing & Aftercare Guidance",
-        text: "We place sterile gauze to encourage clotting and provide detailed instructions for home care (soft diet, no straws) to ensure a rapid recovery.",
-      },
-    ],
-    candidacy: {
-      text: "Tooth extraction is recommended when structural damage is too severe to save, or when wisdom teeth are impacted and causing gum swelling.",
-      checks: [
-        "Severe tooth decay beyond restoration",
-        "Deep tooth fractures below the gumline",
-        "Impacted or painful wisdom teeth",
-        "Advanced periodontal bone loss",
-      ],
-    },
-    costInfo: {
-      text: "Simple and surgical extractions are covered under basic or major dental insurance benefits, typically covering between 50% and 80% of the cost.",
-      financingNote: "Hampton Dental Wellness members get 15% off. Flexible monthly payment options are available through CareCredit.",
-    },
-    faqs: [
-      {
-        q: "What is a dry socket and how do I prevent it?",
-        a: "A dry socket occurs when the protective blood clot in the empty socket dislodges prematurely, exposing bone and nerves. You can prevent this by avoiding straws, smoking, spitting, or strenuous exercise for 48 hours after extraction.",
-      },
-      {
-        q: "Do I need to replace an extracted tooth?",
-        a: "Except for wisdom teeth, we highly recommend replacing extracted teeth. Gaps can cause surrounding teeth to drift, resulting in bite misalignment and bone loss. We can replace them with dental implants, bridges, or partial dentures.",
-      },
-    ],
-    relatedServices: [
-      { label: "Dental Implants", href: "/restorative-dentistry/dental-implants" },
-      { label: "Dental Bridges", href: "/restorative-dentistry/dental-bridges" },
-      { label: "Dentures", href: "/restorative-dentistry/dentures" },
-    ],
-    breadcrumbs: [
-      { label: "General Dentistry", href: "/general-dentistry" },
-      { label: "Tooth Extraction" },
-    ],
+export const metadata: Metadata = {
+  title: "Tooth Extraction in Southampton, PA | Wisdom Teeth | Hampton",
+  description:
+    "Gentle tooth extractions & wisdom teeth removal in Southampton, PA — comfortable care, clear aftercare, 15% off for members. (215) 357-2224.",
+  keywords: [
+    "tooth extraction southampton pa",
+    "wisdom tooth removal southampton",
+    "tooth extraction cost southampton",
+    "dry socket",
+    "tooth extraction aftercare",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/general-dentistry/tooth-extraction`,
+  },
+  openGraph: {
+    title: "Tooth Extraction in Southampton, PA | Wisdom Teeth | Hampton",
+    description:
+      "Gentle tooth extractions & wisdom teeth removal in Southampton, PA — comfortable care, clear aftercare, 15% off for members. (215) 357-2224.",
+    url: `${SITE_URL}/general-dentistry/tooth-extraction`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tooth Extraction in Southampton, PA | Wisdom Teeth | Hampton",
+    description:
+      "Gentle tooth extractions & wisdom teeth removal in Southampton, PA — comfortable care, clear aftercare, 15% off for members. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function ToothExtractionPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Tooth Extraction",
+    "description": "Safe, gentle, and comfortable tooth extractions, including wisdom teeth removal and emergency extractions, performed by experienced dentists in Southampton, PA.",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ],
+      "availableService": {
+        "@type": "MedicalProcedure",
+        "name": "Tooth Extractions & Wisdom Teeth Removal"
+      }
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a tooth extraction cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on whether it's a simple or surgical extraction and which tooth is involved — wisdom and impacted teeth cost more than a straightforward extraction. We give you a clear estimate first. Most insurance covers 50–80%, we accept CareCredit, and members get 15% off."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a tooth extraction hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The extraction itself shouldn't hurt — we fully numb the area with local anesthesia, so you'll feel pressure but not pain. Some soreness afterward is normal and is easily managed with the medication and aftercare instructions we provide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a dry socket and how do I prevent it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A dry socket occurs when the protective blood clot in the empty socket dislodges prematurely, exposing bone and nerves. You can prevent this by avoiding straws, smoking, spitting, or strenuous exercise for 48 hours after extraction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to recover from a tooth extraction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most people feel much better within a few days, with the socket fully healing over a few weeks. Surgical and wisdom tooth extractions can take a bit longer. Following your aftercare instructions — soft foods, no straws, gentle rinsing — speeds recovery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need my wisdom teeth removed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not always — but impacted wisdom teeth that cause pain, swelling, crowding, or infection should come out. We'll review your X-rays and recommend removal only if it benefits your long-term oral health, ideally before problems start."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I eat after a tooth extraction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stick to soft, cool foods for the first day or two — yogurt, smoothies (no straw), mashed potatoes, soup that isn't too hot, and scrambled eggs. Avoid crunchy, chewy, or spicy foods and gradually return to your normal diet as the area heals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How soon can I replace an extracted tooth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the replacement option and how the site heals — implants often wait a few weeks to months, while bridges or partial dentures may be placed sooner. We'll plan the timing with you so you're never left with a noticeable gap longer than necessary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to replace an extracted tooth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Except for wisdom teeth, we highly recommend replacing extracted teeth. Gaps can cause surrounding teeth to drift, resulting in bite misalignment and bone loss. We can replace them with dental implants, bridges, or partial dentures."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "General Dentistry",
+        "item": `${SITE_URL}/general-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Tooth Extraction",
+        "item": `${SITE_URL}/general-dentistry/tooth-extraction`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <ToothExtractionClient />
+    </>
+  );
 }
