@@ -269,7 +269,7 @@ export default function ServicePageTemplate({
 
               {introBody && (
                 <div className="rounded-3xl bg-beige-light/20 border border-navy/[0.04] p-6 md:p-8">
-                  <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                  <p className="text-navy/70 text-sm md:text-base leading-relaxed whitespace-pre-line">
                     <LinkedText text={introBody.text} links={introBody.links} />
                   </p>
                 </div>
@@ -329,7 +329,7 @@ export default function ServicePageTemplate({
                   <h2 className="font-heading text-navy text-2xl md:text-3xl font-bold leading-tight">
                     {comparison.title}
                   </h2>
-                  <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                  <p className="text-navy/70 text-sm md:text-base leading-relaxed whitespace-pre-line">
                     <LinkedText
                       text={comparison.intro.text}
                       links={comparison.intro.links}
@@ -382,7 +382,7 @@ export default function ServicePageTemplate({
                   <h2 className="font-heading text-navy text-2xl md:text-3xl font-bold leading-tight">
                     {candidacyBody.title}
                   </h2>
-                  <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                  <p className="text-navy/70 text-sm md:text-base leading-relaxed whitespace-pre-line">
                     <LinkedText
                       text={candidacyBody.text}
                       links={candidacyBody.links}
@@ -398,7 +398,7 @@ export default function ServicePageTemplate({
                     <h2 className="font-heading text-2xl md:text-3xl font-bold leading-tight">
                       {costBody.title}
                     </h2>
-                    <p className="text-white/72 text-sm md:text-base leading-relaxed">
+                    <p className="text-white/72 text-sm md:text-base leading-relaxed whitespace-pre-line">
                       <LinkedText text={costBody.text} links={costBody.links} />
                     </p>
                   </div>
