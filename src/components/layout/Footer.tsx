@@ -44,6 +44,16 @@ const serviceLinks = [
   { label: "Dental Crowns", href: "/restorative-dentistry/dental-crowns" },
 ];
 
+const cityLinks = [
+  { label: "Southampton", href: "/areas-we-serve/dentist-southampton-pa" },
+  { label: "Richboro", href: "/areas-we-serve/dentist-richboro-pa" },
+  { label: "Warminster", href: "/areas-we-serve/dentist-warminster-pa" },
+  { label: "Newtown", href: "/areas-we-serve/dentist-newtown-pa" },
+  { label: "Holland", href: "/areas-we-serve/dentist-holland-pa" },
+  { label: "Feasterville", href: "/areas-we-serve/dentist-feasterville-pa" },
+  { label: "Huntingdon Valley", href: "/areas-we-serve/dentist-huntingdon-valley-pa" },
+];
+
 const socials = [
   { icon: FacebookIcon, href: practiceInfo.socials.facebook, label: "Facebook" },
   { icon: InstagramIcon, href: practiceInfo.socials.instagram, label: "Instagram" },
@@ -326,6 +336,46 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-white/8" />
+
+        {/* ─── Areas We Serve ─── */}
+        <div className="py-10 lg:py-12">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary-light" />
+              <h4 className="font-heading text-white font-bold text-base">
+                Areas We Serve
+              </h4>
+            </div>
+            <div className="hidden sm:block flex-1 h-px bg-white/8" />
+            <Link
+              href="/areas-we-serve"
+              className="group inline-flex items-center gap-1.5 text-primary-light text-xs font-semibold uppercase tracking-widest hover:text-white transition-colors"
+            >
+              View All Areas
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5">
+            {cityLinks.map((city) => (
+              <Link
+                key={city.label}
+                href={city.href}
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full
+                  bg-white/[0.04] border border-white/10
+                  text-white/60 text-sm font-medium
+                  hover:bg-primary/15 hover:border-primary/40 hover:text-primary-light
+                  transition-all duration-300"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary-light group-hover:scale-125 transition-all duration-300" />
+                Dentist {city.label}, PA
+              </Link>
+            ))}
           </div>
         </div>
 
