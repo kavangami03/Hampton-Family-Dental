@@ -1,82 +1,184 @@
-import ServicePageTemplate from "@/components/service-page/ServicePageTemplate";
-import { buildServicePageMetadata } from "@/components/service-page/servicePageMetadata";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+import DentalImplantsClient from "./DentalImplantsClient";
 
-
-const data = {
-    eyebrow: "Restorative Dentistry",
-    title: "Dental Implants in Southampton, PA",
-    intro: "Restore the complete look, strength, and functionality of missing teeth. Dental implants are biocompatible titanium posts that act as permanent anchors for premium crown restorations, protecting your jawbone and adjacent teeth.",
-    duration: "3–6 months",
-    visits: "3–4 visits",
-    image: "/images/cosmetic_smile_1779858128482.webp",
-    whatIs: {
-      title: "What is a Dental Implant?",
-      text: "A dental implant is a titanium post surgically positioned into the jawbone beneath the gumline. Once integrated with the bone (a process called osseointegration), it serves as a stable mount for a custom-crafted replacement crown. This permanent solution prevents bone loss and looks, feels, and functions exactly like a natural tooth.",
-    },
-    benefits: [
-      "Prevents bone loss & facial shifting",
-      "Lasts a lifetime with proper care",
-      "Restores full chewing power & clear speech",
-      "Requires no grinding of adjacent teeth",
-    ],
-    processSteps: [
-      {
-        title: "Initial Consultation & 3D CBCT Mapping",
-        text: "Dr. Dudhat utilizes our Cone Beam CT scanner to capture a high-resolution 3D map of your jawbone and plan the precise placement guide.",
-      },
-      {
-        title: "Implant Post Placement",
-        text: "The titanium post is carefully inserted into the bone under local anesthesia, ensuring a completely comfortable procedure.",
-      },
-      {
-        title: "Osseointegration (Healing)",
-        text: "Over the next 3 to 6 months, the bone heals and fuses around the post, establishing a rock-solid foundation.",
-      },
-      {
-        title: "Abutment & Custom Crown placement",
-        text: "An abutment is attached to the post, and a custom-colored porcelain crown is placed, completing your beautiful, natural smile.",
-      },
-    ],
-    candidacy: {
-      text: "Dental implants are ideal for patients with one or more missing teeth who have adequate bone density to support the posts and healthy gums.",
-      checks: [
-        "Adequate jawbone density",
-        "Healthy gum tissues",
-        "Commitment to good oral hygiene",
-        "Non-smoker or willing to pause",
-      ],
-    },
-    costInfo: {
-      text: "Implants are a long-term investment. While they have a higher initial cost than bridges or dentures, their durability makes them highly cost-effective over time. Some dental insurance plans cover a portion of the crown or surgery.",
-      financingNote: "Hampton Dental Wellness members get 15% off. Monthly payment options are available through CareCredit.",
-    },
-    faqs: [
-      {
-        q: "Is the dental implant procedure painful?",
-        a: "Most patients experience very little discomfort. The surgery is performed under local anesthesia, meaning the area is completely numb. Over-the-counter pain relievers are usually sufficient for any post-procedure soreness.",
-      },
-      {
-        q: "How long do dental implants last?",
-        a: "With proper home care and regular professional checkups, the titanium implant post can last a lifetime. The custom crown on top may need replacement after 10 to 15 years due to normal wear.",
-      },
-      {
-        q: "Am I too old for dental implants?",
-        a: "No! As long as you are in good health and have sufficient bone density, age is not a factor. Many elderly patients choose implants to replace unstable dentures.",
-      },
-    ],
-    relatedServices: [
-      { label: "Dental Crowns", href: "/restorative-dentistry/dental-crowns" },
-      { label: "Dental Bridges", href: "/restorative-dentistry/dental-bridges" },
-      { label: "Dentures", href: "/restorative-dentistry/dentures" },
-    ],
-    breadcrumbs: [
-      { label: "Restorative Dentistry", href: "/restorative-dentistry" },
-      { label: "Dental Implants" },
-    ],
+export const metadata: Metadata = {
+  title: "Dental Implants in Southampton, PA | Cost & Options | Hampton",
+  description:
+    "Dental implants in Southampton, PA — single tooth to full-mouth & All-on-4. Permanent, natural tooth replacement. Financing available. (215) 357-2224.",
+  keywords: [
+    "dental implants southampton pa",
+    "dental implant cost southampton",
+    "all on 4 southampton",
+    "single tooth implant southampton",
+    "full mouth implants southampton",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/restorative-dentistry/dental-implants`,
+  },
+  openGraph: {
+    title: "Dental Implants in Southampton, PA | Cost & Options | Hampton",
+    description:
+      "Dental implants in Southampton, PA — single tooth to full-mouth & All-on-4. Permanent, natural tooth replacement. Financing available. (215) 357-2224.",
+    url: `${SITE_URL}/restorative-dentistry/dental-implants`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dental Implants in Southampton, PA | Cost & Options | Hampton",
+    description:
+      "Dental implants in Southampton, PA — single tooth to full-mouth & All-on-4. Permanent, natural tooth replacement. Financing available. (215) 357-2224.",
+  },
 };
 
-export const metadata = buildServicePageMetadata(data);
-
 export default function DentalImplantsPage() {
-  return <ServicePageTemplate {...data} />;
+  const medicalProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": "Dental Implants",
+    "description": "Titanium dental implants that permanently replace missing teeth - single tooth, multiple, All-on-4, and full-mouth options - for patients in Southampton, PA.",
+    "procedureType": "https://schema.org/SurgicalProcedure",
+    "provider": {
+      "@type": "Dentist",
+      "name": "Hampton Family Dental",
+      "telephone": "+12153572224",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "283 Second Street Pike, Suite 140",
+        "addressLocality": "Southampton",
+        "addressRegion": "PA",
+        "postalCode": "18966",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Southampton PA",
+        "Richboro PA",
+        "Warminster PA",
+        "Newtown PA",
+        "Holland PA",
+        "Feasterville PA",
+        "Huntingdon Valley PA"
+      ]
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much do dental implants cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on how many teeth you’re replacing and the type of restoration — a single implant differs greatly from full-mouth or All-on-4. We give you a clear written estimate first. Many plans cover part of the crown or surgery, we accept CareCredit, and members get 15% off."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is All-on-4?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All-on-4 replaces a full arch of teeth using just four implants as anchors for a fixed, non-removable set of teeth. It’s a popular, efficient alternative to dentures for patients missing most or all of their teeth in an arch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the dental implant process take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most cases take about 3 to 6 months from placement to final crown, because the implant needs time to fuse with the bone (osseointegration). We’ll give you a personalized timeline — some cases qualify for faster options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the dental implant procedure painful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most patients experience very little discomfort. The surgery is performed under local anesthesia, meaning the area is completely numb. Over-the-counter pain relievers are usually sufficient for any post-procedure soreness."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do dental implants last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With proper home care and regular professional checkups, the titanium implant post can last a lifetime. The custom crown on top may need replacement after 10 to 15 years due to normal wear."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are dental implants better than a bridge or dentures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Implants are the only option that replaces the tooth root, so they protect your jawbone and don’t rely on or damage neighboring teeth. Bridges and dentures are good options too — we’ll help you choose based on your needs and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does insurance cover dental implants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Coverage varies — many plans cover a portion of the crown or surgery rather than the full cost. We’ll review your benefits with you and explain your options, including financing through CareCredit and our membership-plan savings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Am I too old for dental implants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No! As long as you are in good health and have sufficient bone density, age is not a factor. Many elderly patients choose implants to replace unstable dentures."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${SITE_URL}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Restorative Dentistry",
+        "item": `${SITE_URL}/restorative-dentistry`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dental Implants",
+        "item": `${SITE_URL}/restorative-dentistry/dental-implants`
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalProcedureSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <DentalImplantsClient />
+    </>
+  );
 }
