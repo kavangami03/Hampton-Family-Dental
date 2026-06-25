@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
@@ -24,17 +24,12 @@ const services = [
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  
+  /*
+  // Optional Video Background Logic for future use:
+  // (Requires adding `useEffect` and `useState` back to react imports)
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.9]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -48,16 +43,11 @@ export default function Hero() {
     v.addEventListener("loadeddata", onLoaded);
     v.addEventListener("error", onError);
 
-    // Defer the (multi-MB) download until the hero is actually on screen,
-    // instead of preload="auto" forcing it to compete with fonts/LCP image
-    // on first paint. The WebP poster shows instantly in the meantime.
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            v.play().catch(() => {
-              /* autoplay blocked — poster stays */
-            });
+            v.play().catch(() => {});
           } else {
             v.pause();
           }
@@ -73,6 +63,18 @@ export default function Hero() {
       v.removeEventListener("error", onError);
     };
   }, []);
+  */
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.9]);
+
+
 
   return (
     <section
@@ -80,33 +82,30 @@ export default function Hero() {
       id="home"
       className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-navy-dark"
     >
-      {/* ───────── Video Layer ───────── */}
+      {/* ───────── Background Image Layer ───────── */}
       <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('/images/clinic_interior_1779858062605.webp')",
+          }}
+        />
+
+        {/* 
+        Optional Video Background (Uncomment logic above as well)
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover z-0"
           loop
           muted
           playsInline
           preload="none"
           poster="/images/clinic_interior_1779858062605.webp"
         >
-          {/* Prefer the small re-encoded WebM/720p MP4 once generated; the
-              original is kept last as a guaranteed fallback. The browser skips
-              any source that 404s and advances to the next. */}
-          <source src="/videos/hero-dental.webm" type="video/webm" />
-          <source src="/videos/hero-dental-720.mp4" type="video/mp4" />
           <source src="/videos/hero-dental.mp4" type="video/mp4" />
         </video>
-        {!videoLoaded && (
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('/images/clinic_interior_1779858062605.webp')",
-            }}
-          />
-        )}
+        */}
       </div>
 
       {/* ───────── Overlays ───────── */}

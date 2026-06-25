@@ -17,17 +17,17 @@ export default function SpecialsClient() {
   const specials = [
     {
       code: "SPECIAL-001",
-      title: "Complimentary First Visit",
-      subtitle: "Experience the Hampton Difference",
-      desc: "For patients looking for a second opinion or wanting to meet our team. Includes a comprehensive clinical exam, high-definition digital X-rays, and a personalized dental health roadmap with our doctors.",
-      value: "$295",
-      price: "FREE",
+      title: "$69 Emergency Visit",
+      subtitle: "Relief when you need it",
+      desc: "Don't let dental pain wait. Our emergency promotion includes a focused exam and necessary X-rays to diagnose the issue quickly.",
+      value: "$150",
+      price: "$69",
       features: [
-        "Comprehensive Dental Exam",
-        "Full-Mouth Digital X-Rays",
-        "In-depth Smile consultation",
+        "Limited Emergency Exam",
+        "Diagnostic X-Rays",
+        "Immediate Care Plan",
       ],
-      badge: "Free Offer",
+      badge: "Limited Time",
     },
     {
       code: "SPECIAL-002",
@@ -48,7 +48,7 @@ export default function SpecialsClient() {
   const plans = [
     {
       name: "Child Complete",
-      price: "$312 /yr",
+      price: "$288 /yr",
       yearly: "For children age 13 and younger",
       target: "Preventive Care Package",
       features: [
@@ -65,7 +65,7 @@ export default function SpecialsClient() {
     },
     {
       name: "Adult Complete",
-      price: "$369 /yr",
+      price: "$312 /yr",
       yearly: "For adults age 14 and older",
       target: "Most Popular Package",
       features: [
@@ -81,7 +81,7 @@ export default function SpecialsClient() {
     },
     {
       name: "Perio Maintenance",
-      price: "$569 /yr",
+      price: "$552 /yr",
       yearly: "For periodontal care support",
       target: "Specialized Maintenance",
       features: [

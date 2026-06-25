@@ -8,11 +8,11 @@ import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import SmileGallery from "@/components/sections/SmileGallery";
-import Technology from "@/components/sections/Technology";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import CTABanner from "@/components/sections/CTABanner";
+// import Technology from "@/components/sections/Technology";
 
 export const metadata: Metadata = {
   title: "Family Dentist in Southampton, PA | Hampton Family Dental",
@@ -146,12 +146,12 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <WelcomeIntro />
+      <TrustStats />
       <Services />
       <About />
       <WhyChooseUs />
-      <TrustStats />
+      {/* <Technology /> */}
       <SmileGallery />
-      <Technology />
       <Testimonials />
       <CTABanner />
       <FAQ />

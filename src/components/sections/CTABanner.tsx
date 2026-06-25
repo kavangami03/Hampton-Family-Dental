@@ -230,15 +230,14 @@ export default function CTABanner() {
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  Complimentary{" "}
+                  $69 Emergency{" "}
                   <span className="italic font-normal bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                    First Visit
+                    Visit
                   </span>
                 </h3>
 
                 <p className="text-navy/55 text-[13px] leading-relaxed mb-5">
-                  Includes a comprehensive exam, digital X-rays, and a
-                  personalized treatment roadmap — at no cost.
+                  Includes a limited emergency exam and diagnostic X-rays. Get relief when you need it.
                 </p>
 
                 {/* Value strip */}
@@ -248,7 +247,7 @@ export default function CTABanner() {
                       Value
                     </p>
                     <p className="font-heading text-navy text-lg font-bold leading-none mt-0.5 line-through decoration-navy/40">
-                      $295
+                      $150
                     </p>
                   </div>
                   <div className="flex-1 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/30 px-3 py-2.5">
@@ -256,7 +255,7 @@ export default function CTABanner() {
                       Your Price
                     </p>
                     <p className="font-heading text-primary-dark text-lg font-bold leading-none mt-0.5">
-                      FREE
+                      $69
                     </p>
                   </div>
                 </div>

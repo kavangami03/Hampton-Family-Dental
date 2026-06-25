@@ -9,7 +9,7 @@ export default function TrustStats() {
     {
       name: "Child Complete",
       age: "13 and Younger",
-      price: "$312",
+      price: "$288",
       period: "per year",
       features: [
         "2 Professional Cleanings",
@@ -24,7 +24,7 @@ export default function TrustStats() {
     {
       name: "Adult Complete",
       age: "14 and Older",
-      price: "$369",
+      price: "$312",
       period: "per year",
       features: [
         "2 Professional Cleanings",
@@ -38,7 +38,7 @@ export default function TrustStats() {
     {
       name: "Perio",
       age: "Periodontal Support",
-      price: "$569",
+      price: "$552",
       period: "per year",
       features: [
         "3 Perio Maintenance",
@@ -199,7 +199,7 @@ export default function TrustStats() {
               </div>
 
               <Link
-                href="/specials"
+                href="/contact"
                 className={`block text-center w-full py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                   plan.popular
                     ? "bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary-light hover:scale-[1.02] active:scale-[0.98]"
