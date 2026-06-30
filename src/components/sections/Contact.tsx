@@ -41,9 +41,9 @@ const contactInfo: {
   {
     icon: Mail,
     label: "Email Us",
-    value: "hello@hamptonfamilydental.com",
+    value: "info@hamptonfamilydentist.com",
     sub: "Replies within 24 hours",
-    href: "mailto:hello@hamptonfamilydental.com",
+    href: "mailto:info@hamptonfamilydentist.com",
   },
   {
     icon: Clock,

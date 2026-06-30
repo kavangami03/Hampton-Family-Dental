@@ -64,19 +64,6 @@ export default function DrDudhatClient() {
               </motion.p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/50 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to About
-              </Link>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -95,7 +82,7 @@ export default function DrDudhatClient() {
                 className="relative aspect-square md:aspect-[4/5] lg:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-navy/5 bg-beige-light/30"
               >
                 <Image
-                  src="/images/dr_keyur_dudhat_portrait.png"
+                  src="/placeholder.svg"
                   alt="Dr. Keyur Dudhat, DMD"
                   fill
                   className="object-cover"
@@ -133,7 +120,7 @@ export default function DrDudhatClient() {
                   <li className="border-b border-navy/5 pb-3">
                     <p className="text-navy/40 font-bold uppercase tracking-wider text-[9px] mb-0.5">Specialized Technology</p>
                     <p className="text-navy font-semibold">3D Cone Beam & Facial Imaging</p>
-                    <p className="text-navy/70">RayFace scanners, CBCT diagnostic mapping</p>
+                    <p className="text-navy/70">CBCT diagnostic mapping</p>
                   </li>
                   <li>
                     <p className="text-navy/40 font-bold uppercase tracking-wider text-[9px] mb-0.5">Community Engagement</p>
@@ -162,15 +149,23 @@ export default function DrDudhatClient() {
                 </h2>
 
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  Dr. Keyur Dudhat is dedicated to delivering next-generation dental care that is gentle, accurate, and customized. Having completed his undergraduate studies at Penn State University, Dr. Dudhat went on to earn his Doctor of Dental Medicine (DMD) degree from the Temple University School of Dentistry. Since graduation, he has continually pursued advanced training and clinical education in some of the most rapidly evolving fields of oral health, ensuring his patients receive the highest standard of modern care.
+                  Dr. Keyur Dudhat is committed to providing modern, patient-centered dentistry that combines advanced technology with compassionate, personalized care. After completing his undergraduate studies at Penn State University, he earned his Doctor of Dental Medicine (DMD) degree from the Temple University Kornberg School of Dentistry. Since then, he has dedicated himself to continuing education in implant dentistry, cosmetic dentistry, digital treatment planning, and complex restorative care to ensure his patients benefit from the latest advancements in the field.
                 </p>
 
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  As the partnering clinician at Hampton Family Dental, Dr. Dudhat leads our advanced technology integration, ensuring the practice stays at the forefront of modern dentistry. His practice focuses heavily on state-of-the-art diagnostics, incorporating 3D Cone Beam Computed Tomography (CBCT) and RayFace facial scanning. The RayFace scanner is a breakthrough in digital dentistry, capturing high-resolution 3D records of a patient’s unique facial dimensions in a single click. These advanced tools allow him to plan complex dental implant restorations and comprehensive smile makeovers with sub-millimeter precision. Rather than relying on traditional physical molds and subjective visual planning, Dr. Dudhat uses these digital records to simulate surgical outcomes before treatment ever begins, significantly reducing chair time, improving restoration fit, and accelerating recovery.
+                  One of Dr. Dudhat's greatest passions is dental implant treatment. He believes patients deserve the convenience and confidence of receiving comprehensive implant care in one familiar office whenever possible. Whether replacing a single missing tooth, restoring multiple teeth, or rebuilding an entire smile with full-arch implant solutions, Dr. Dudhat develops customized treatment plans designed for long-term function, comfort, and natural aesthetics. By offering advanced implant procedures in-house, Hampton Family Dental is able to provide a more seamless experience while minimizing the need for referrals to outside specialists.
                 </p>
 
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  His clinical focus centers on advanced restorative procedures, with a particular expertise in planning and executing comprehensive [dental implants](/restorative-dentistry/dental-implants) to replace missing teeth, restore oral structure, and prevent long-term bone loss. In addition to implantology, Dr. Dudhat is highly regarded for his personalized approach to [cosmetic dentistry](/cosmetic-dentistry). Whether designing porcelain veneers, planning clear aligners (such as Invisalign and ClearCorrect), or performing conservative dental bonding, he works closely with patients to create harmonious, natural-looking smile plans that complement their facial features. For patients looking for a modern cosmetic dentist, searching for dr keyur dudhat southampton will connect them to a practice where digital scanning, facial aesthetics, and dental craftsmanship are combined to deliver beautiful, predictable outcomes.
+                  To support this level of care, Dr. Dudhat utilizes state-of-the-art technology, including the 3D Cone Beam Computed Tomography (CBCT). These advanced digital systems allow for highly precise diagnosis and treatment planning by creating detailed three-dimensional images of a patient's teeth, jawbone, facial anatomy, and smile. This technology enhances the accuracy of implant placement, complex restorative procedures, root canal treatment, and cosmetic smile planning while helping reduce treatment time and improve patient comfort.
+                </p>
+
+                <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                  In addition to implant dentistry, Dr. Dudhat has a strong interest in comprehensive restorative and cosmetic dentistry. From porcelain veneers and clear aligner therapy to crowns, bridges, and full-mouth rehabilitation, he believes every treatment should be customized to complement each patient's facial features, oral health, and long-term goals. His philosophy centers on preserving healthy tooth structure whenever possible while delivering beautiful, functional, and lasting results.
+                </p>
+                
+                <p className="text-navy/70 text-sm md:text-base leading-relaxed">
+                  At Hampton Family Dental, Dr. Dudhat is proud to help expand the services available to the community, allowing more advanced procedures to be completed under one roof. Patients can enjoy the comfort of receiving everything from routine preventive care to complex implant restorations in the same office, surrounded by a team they know and trust. His goal is simple: combine advanced technology, clinical excellence, and genuine patient relationships to create healthy smiles that last a lifetime.
                 </p>
               </motion.div>
 
@@ -190,7 +185,7 @@ export default function DrDudhatClient() {
                 </h3>
 
                 <blockquote className="italic text-white/90 text-sm md:text-base leading-relaxed mb-4">
-                  &ldquo;A visual and diagnostic standard shouldn&apos;t just be about high-resolution imaging; it should be about minimal discomfort, rapid recovery, and predictable cosmetic results. In using advanced digital guides, we are able to take the guesswork out of complex restorations, making dentistry safer and far more comfortable for our patients.&rdquo;
+                  &ldquo;My goal is simple: to provide a comfortable, welcoming environment where you feel truly cared for. Dentistry is about more than just teeth—it&apos;s about building lasting relationships and helping our community smile with confidence.&rdquo;
                 </blockquote>
 
                 <cite className="block text-primary-light text-xs font-semibold tracking-wider uppercase font-body">
@@ -209,13 +204,10 @@ export default function DrDudhatClient() {
                   Community-Oriented Dental Care
                 </h3>
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  Dr. Dudhat believes that dental care is a fundamental component of general health that should be accessible to all. He is a passionate advocate of community outreach, frequently participating as a volunteer dentist in the **Missions of Mercy in Pennsylvania** (MOM-n-PA). Through this program, he joins hundreds of healthcare professionals in setting up mobile clinics to offer free dental checkups, fillings, extractions, and cleanings to local underserved populations. For Dr. Dudhat, volunteering is not just a civic duty but a core clinical value, helping to restore confidence and alleviate dental pain for those who need it most.
+                  At Hampton Family Dental, Dr. Dudhat is excited to help continue the practice's long-standing tradition of personalized dentistry while expanding the advanced treatment options available to patients. His focus on implant dentistry, digital technology, and comprehensive restorative care allows more procedures to be completed comfortably under one roof, giving patients access to advanced treatment in the familiar office they know and trust.
                 </p>
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  His partnership with Dr. Jeffrey Brenner at Hampton Family Dental combines Dr. Brenner&apos;s 25-year history of local patient trust with Dr. Dudhat&apos;s passion for clinical technology and cosmetic therapies, offering a perfect marriage of legacy and modern vision. You can read more about how their shared values shaped the practice in [our story](/about/our-story).
-                </p>
-                <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  To remain at the forefront of his field, Dr. Dudhat regularly participates in advanced continuing education. He maintains active memberships in several professional organizations, including the American Dental Association (ADA) and the Pennsylvania Dental Association (PDA), collaborating with peers to integrate the safest, most effective dental techniques into his daily practice.
+                  Committed to lifelong learning, Dr. Dudhat regularly pursues advanced continuing education in implant dentistry, cosmetic dentistry, digital workflows, and restorative techniques. He maintains active memberships in professional organizations, including the American Dental Association (ADA) and the Pennsylvania Dental Association (PDA), ensuring he remains at the forefront of modern dental advancements. By combining evidence-based dentistry with today's latest technology, Dr. Dudhat is dedicated to delivering exceptional care that is precise, comfortable, and built to last.
                 </p>
               </motion.div>
 

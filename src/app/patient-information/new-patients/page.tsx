@@ -59,7 +59,7 @@ export default function NewPatientsPage() {
         "name": "What should I bring to my first appointment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Please bring a valid photo ID, your current dental insurance card (if applicable), and a list of any medications you are taking. If you have had recent dental X-rays taken at another office within the past year, please request to have them forwarded to our email address hello@hamptonfamilydental.com prior to your visit."
+          "text": "Please bring a valid photo ID, your current dental insurance card (if applicable), and a list of any medications you are taking. If you have had recent dental X-rays taken at another office within the past year, please request to have them forwarded to our email address info@hamptonfamilydentist.com prior to your visit."
         }
       },
       {

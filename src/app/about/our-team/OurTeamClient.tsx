@@ -110,20 +110,7 @@ export default function OurTeamClient() {
                 Same familiar faces, committed to your family&apos;s comfort
               </motion.p>
             </div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/50 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to About
-              </Link>
-            </motion.div>
+
           </div>
         </div>
       </section>

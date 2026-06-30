@@ -120,7 +120,6 @@ export const mainNav: NavItem[] = [
       { label: "Our Story", href: "/about/our-story" },
       { label: "Dr. Jeffrey Brenner", href: "/about/dr-jeffrey-brenner" },
       { label: "Dr. Keyur Dudhat", href: "/about/dr-keyur-dudhat" },
-      { label: "Our Team", href: "/about/our-team" },
       { label: "Patient Reviews", href: "/about/patient-reviews" },
     ],
   },
@@ -156,7 +155,7 @@ export const practiceInfo = {
   formerName: "Brenner Dental Group",
   phone: "(215) 357-2224",
   phoneTel: "tel:+12153572224",
-  email: "hello@hamptonfamilydental.com",
+  email: "info@hamptonfamilydentist.com",
   address: {
     street: "283 Second Street Pike",
     suite: "Suite 140",

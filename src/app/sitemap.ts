@@ -30,7 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about/our-story",
     "/about/dr-jeffrey-brenner",
     "/about/dr-keyur-dudhat",
-    "/about/our-team",
     "/about/patient-reviews",
     "/patient-information/why-choose-us",
     "/patient-information/new-patients",

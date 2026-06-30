@@ -90,20 +90,6 @@ export default function OurStoryClient() {
                 Honoring the past, embracing the future of family dentistry
               </motion.p>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/50 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to About
-              </Link>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -135,29 +121,26 @@ export default function OurStoryClient() {
                   A Trusted Local History
                 </h2>
                 <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  Dr. Jeffrey Brenner founded the practice in the 1990s with a singular vision: to create a dental office where patients felt like extended family rather than a number on a chart. Operating under the name Brenner Dental Group, Dr. Brenner built a reputation on honest advice, conservative care, and patient relationships that spanned multiple generations. He prioritized taking the time to listen to each patient, understanding their unique concerns, and explaining treatments thoroughly without ever applying pressure.
-                </p>
-                <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  Over thirty years, Southampton evolved, and so did our practice. We consistently integrated modern techniques while preserving our warm, community-focused atmosphere. In 2008, we relocated to our current state-of-the-art office suite at 283 Second Street Pike, Suite 140. This move allowed us to incorporate digital x-rays, ergonomic patient chairs, and a larger hygiene department to better accommodate the growing number of Bucks County families who trusted us with their smiles.
-                </p>
-                <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  Through the years, one thing never changed: our dedication to preserving natural teeth and emphasizing preventive care. By focusing on educating our patients about oral hygiene and catching small issues before they turned into major problems, we helped thousands of Southampton residents maintain healthy, beautiful smiles for life.
+                  Dr. Jeffrey Brenner founded the practice with a singular vision: to create a dental office where patients felt like extended family rather than a number on a chart. Operating under the name Brenner Dental Group, Dr. Brenner built a reputation on honest advice, conservative care, and patient relationships that spanned multiple generations. He prioritized taking the time to listen to each patient, understanding their unique concerns, and explaining treatments thoroughly without ever applying pressure.
                 </p>
               </div>
 
               {/* H2: A New Chapter */}
               <div className="space-y-4">
                 <h2 className="font-heading text-navy text-2xl md:text-3xl font-bold leading-tight">
-                  A New Chapter: Becoming Hampton Family Dental
+                  NEW CHAPTER
                 </h2>
                 <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  As our practice looked to the future of dentistry, Dr. Brenner sought a partner who shared his conservative clinical philosophy and deep respect for patient comfort. Dr. Keyur Dudhat joins as partner with advanced expertise in cosmetic and implant dentistry. With this partnership, the practice transitions to Hampton Family Dental — remaining in the exact same location (283 Second Street Pike, Suite 140) and retaining the complete clinical team you already know and trust.
+                  As our practice looks toward the future of dentistry, we are excited to welcome Dr. Keyur Dudhat to our team. Dr. Dudhat shares Dr. Brenner's patient-first philosophy, emphasizing conservative, compassionate care and building lasting relationships with every patient.
                 </p>
                 <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  This evolution brings exciting new capabilities to our Southampton office. Dr. Dudhat brings extensive clinical training in dental implantology, modern smile design, and the latest digital diagnostics. We have introduced 3D CBCT scanning technology, allowing us to plan implant placements and complex root canals with pinpoint, three-dimensional accuracy. We have also expanded our cosmetic offerings, providing more efficient clear aligner therapy and minimally invasive porcelain veneers.
+                  As Dr. Dudhat joins the practice, we are also introducing our new name, Hampton Family Dental. While our name is changing, everything you know and trust remains the same—including our convenient location at 283 Second Street Pike, Suite 140, and the dedicated clinical team that has cared for generations of local families.
                 </p>
                 <p className="text-navy/80 text-sm md:text-base leading-relaxed">
-                  Most importantly, this partnership allows us to offer comprehensive, specialized treatment pathways completely under one roof. Longtime patients can now receive advanced treatments — such as surgical implant placement or complete full-mouth restorations — right here in the office they are comfortable in, from the clinical team they already trust. You no longer need to be referred out to unfamiliar specialists across town.
+                  Dr. Dudhat brings advanced training in cosmetic and implant dentistry, along with the latest innovations in modern dental care. Our office now features 3D CBCT scanning technology, allowing for more precise planning of dental implants, root canals, and other complex procedures. We have also expanded our cosmetic services to include advanced clear aligner therapy and minimally invasive porcelain veneers.
+                </p>
+                <p className="text-navy/80 text-sm md:text-base leading-relaxed">
+                  Most importantly, these enhancements allow us to provide even more comprehensive care under one roof. Patients can now receive advanced treatments, including dental implants and full-mouth restorations, in the familiar office they know and trust—often eliminating the need for referrals to outside specialists. Our commitment to personalized care remains unchanged, while our ability to serve your dental needs continues to grow.
                 </p>
               </div>
 
@@ -174,10 +157,10 @@ export default function OurStoryClient() {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-6">
                   <Link
-                    href="/about/our-team"
+                    href="/about"
                     className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs font-semibold tracking-widest uppercase hover:bg-primary-dark transition-all duration-300 shadow-md"
                   >
-                    Meet the Team
+                    Meet the Doctors
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                   <Link
@@ -193,7 +176,7 @@ export default function OurStoryClient() {
             {/* Right Media/Image Column */}
             <div className="lg:col-span-5 relative aspect-[4/3] md:aspect-[16/10] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border border-navy/5 bg-beige-light/30 lg:sticky lg:top-28 mt-8 lg:mt-0">
               <Image
-                src="/images/about_storytelling_1779858491119.webp"
+                src="/placeholder.svg"
                 alt="Hampton Family Dental team transition"
                 fill
                 className="object-cover"

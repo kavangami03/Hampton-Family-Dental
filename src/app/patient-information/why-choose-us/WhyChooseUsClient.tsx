@@ -45,7 +45,7 @@ export default function WhyChooseUsClient() {
     {
       icon: Cpu,
       title: "Modern Technology for Better Outcomes",
-      desc: "We invest in state-of-the-art dental technology, including 3D Cone Beam (CBCT) scanners, digital diagnostic X-rays, and RayFace facial imaging. This advanced diagnostic equipment ensures higher precision, faster healing, and a more comfortable experience."
+      desc: "We invest in state-of-the-art dental technology, including 3D Cone Beam (CBCT) scanners and digital diagnostic X-rays. This advanced diagnostic equipment ensures higher precision, faster healing, and a more comfortable experience."
     },
     {
       icon: Smile,

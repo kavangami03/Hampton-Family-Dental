@@ -14,14 +14,6 @@ export default function AboutHubPage() {
       desc: "Learn about our roots in the Southampton community and our transition from Brenner Dental Group.",
       href: "/about/our-story",
       cta: "Read Our Story",
-    },
-    {
-      icon: Users,
-      title: "Our Team",
-      desc: "Meet the talented hygienists, assistants, and coordinators who make every visit comfortable.",
-      href: "/about/our-team",
-      cta: "Meet the Team",
-    },
     {
       icon: Star,
       title: "Patient Reviews",
@@ -207,7 +199,7 @@ export default function AboutHubPage() {
             >
               <div className="relative w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg">
                 <Image
-                  src="/images/dr_keyur_dudhat_portrait.png"
+                  src="/placeholder.svg"
                   alt="Dr. Keyur Dudhat"
                   fill
                   className="object-cover"

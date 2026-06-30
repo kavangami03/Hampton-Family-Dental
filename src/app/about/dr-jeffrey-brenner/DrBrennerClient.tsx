@@ -64,19 +64,6 @@ export default function DrBrennerClient() {
               </motion.p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/50 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to About
-              </Link>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -191,7 +178,7 @@ export default function DrBrennerClient() {
                 </h3>
 
                 <blockquote className="italic text-white/90 text-sm md:text-base leading-relaxed mb-4">
-                  &ldquo;Dentistry is not just about clinical precision; it is about building deep, lasting relationships. I want our patients to know they are in safe hands, that their comfort is our primary priority, and that we will never recommend a procedure they do not truly need. It is this trust that has sustained our practice for over 25 years.&rdquo;
+                  &ldquo;Dentistry is not just about clinical precision; it is about building deep, lasting relationships. I want our patients to know they are in safe hands, that their comfort is our primary priority, and that we will never recommend a procedure they do not truly need.&rdquo;
                 </blockquote>
 
                 <cite className="block text-primary-light text-xs font-semibold tracking-wider uppercase font-body">
@@ -210,26 +197,14 @@ export default function DrBrennerClient() {
                   The Transition to Hampton Family Dental
                 </h3>
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  As our practice grew, I recognized the opportunity to expand our services and incorporate the latest modern diagnostic tools without losing the personal touch that defines us. Transitioning our name to Hampton Family Dental alongside my partner Dr. Keyur Dudhat is a reflection of this commitment.
+                  As our practice grew, I recognized the opportunity to expand our services and incorporate the latest modern diagnostic tools without losing the personal touch that defines us. Transitioning our name to Hampton Family Dental reflects our continued commitment to providing exceptional care while embracing the future of dentistry. I am also excited to welcome Dr. Keyur Dudhat to our team, whose advanced training and shared patient-centered philosophy will further enhance the care we provide.
                 </p>
                 <p className="text-navy/70 text-sm md:text-base leading-relaxed">
-                  Rest assured, the same dedicated hygienists and front desk coordinators are right here to welcome you. Under the new banner, we are excited to deliver even more advanced dental implant solutions, cosmetic smile designs, and expanded scheduling options to our community.
+                  Rest assured, the same dedicated hygienists and front desk coordinators are here to welcome you. Under the Hampton Family Dental name, we are excited to offer advanced dental implant solutions, cosmetic smile enhancements, and expanded scheduling options while continuing to provide the compassionate, personalized care you have always expected from our practice.
                 </p>
               </motion.div>
 
-              {/* Personal Life */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className="border-t border-navy/10 pt-6 space-y-3"
-              >
-                <h4 className="font-heading text-navy font-bold text-lg">Outside the Office</h4>
-                <p className="text-navy/70 text-xs md:text-sm leading-relaxed">
-                  Dr. Brenner is a devoted husband and father of two sons. When he is not caring for patients in Southampton, he enjoys spending time outdoors, supporting local high school athletics, hiking throughout Pennsylvania&apos;s beautiful state parks, and volunteering with community wellness and youth health programs.
-                </p>
-              </motion.div>
+
             </div>
           </div>
         </div>
