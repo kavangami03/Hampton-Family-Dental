@@ -14,6 +14,7 @@ export default function AboutHubPage() {
       desc: "Learn about our roots in the Southampton community and our transition from Brenner Dental Group.",
       href: "/about/our-story",
       cta: "Read Our Story",
+    },
     {
       icon: Star,
       title: "Patient Reviews",
