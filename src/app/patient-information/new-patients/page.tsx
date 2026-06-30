@@ -75,7 +75,7 @@ export default function NewPatientsPage() {
         "name": "What if I do not have dental insurance?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We welcome patients without dental insurance! We offer a $149 New Patient Special which covers your comprehensive examination and diagnostic digital X-rays. For long-term care, you can enroll in our in-house Dental Membership Plan, which covers your annual preventive cleaning and offers significant discounts on restorative treatments."
+          "text": "We welcome patients without dental insurance! For long-term care, you can enroll in our in-house Dental Membership Plan, which covers your annual preventive cleaning and offers significant discounts on restorative treatments."
         }
       }
     ]

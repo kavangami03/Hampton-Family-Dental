@@ -15,6 +15,7 @@ export default function ContactClient() {
     email: "",
     phone: "",
     message: "",
+    visitTypes: [] as string[],
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,7 +23,7 @@ export default function ContactClient() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", visitTypes: [] });
     }, 4000);
   };
 
@@ -213,6 +214,33 @@ export default function ContactClient() {
                           className="w-full bg-beige-light/20 border border-navy/10 rounded-xl px-4 py-2.5 text-xs text-navy focus:outline-none focus:border-primary transition-colors"
                           placeholder="you@example.com"
                         />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-bold uppercase tracking-wider text-navy/45">Reason for Visit (Select all that apply)</label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {["New Patient Exam", "Routine Cleaning", "Emergency Exam", "Consultation"].map((type) => (
+                          <label key={type} className="flex items-center gap-2 text-xs text-navy/80 cursor-pointer group">
+                            <div className="relative flex items-center justify-center w-4 h-4 rounded border border-navy/20 bg-beige-light/20 group-hover:border-primary transition-colors">
+                              <input
+                                type="checkbox"
+                                className="absolute opacity-0 cursor-pointer h-0 w-0"
+                                checked={formData.visitTypes.includes(type)}
+                                onChange={(e) => {
+                                  const newTypes = e.target.checked
+                                    ? [...formData.visitTypes, type]
+                                    : formData.visitTypes.filter((t) => t !== type);
+                                  setFormData({ ...formData, visitTypes: newTypes });
+                                }}
+                              />
+                              {formData.visitTypes.includes(type) && (
+                                <Sparkles className="w-3 h-3 text-primary" />
+                              )}
+                            </div>
+                            {type}
+                          </label>
+                        ))}
                       </div>
                     </div>
 

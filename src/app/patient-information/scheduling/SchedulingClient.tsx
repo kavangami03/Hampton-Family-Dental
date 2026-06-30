@@ -33,6 +33,7 @@ export default function SchedulingClient() {
     email: "",
     preferredTime: "",
     notes: "",
+    visitTypes: [] as string[],
   });
 
   const handleBookingSubmit = (e: React.FormEvent) => {
@@ -40,7 +41,7 @@ export default function SchedulingClient() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", phone: "", email: "", preferredTime: "", notes: "" });
+      setFormData({ name: "", phone: "", email: "", preferredTime: "", notes: "", visitTypes: [] });
     }, 5000);
   };
 
@@ -174,7 +175,34 @@ export default function SchedulingClient() {
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 mt-4">
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Reason for Visit (Select all that apply)</label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {["New Patient Exam", "Routine Cleaning", "Emergency Exam", "Consultation"].map((type) => (
+                            <label key={type} className="flex items-center gap-2 text-xs text-navy/80 cursor-pointer group">
+                              <div className="relative flex items-center justify-center w-4 h-4 rounded border border-navy/20 bg-beige-light/10 group-hover:border-primary transition-colors">
+                                <input
+                                  type="checkbox"
+                                  className="absolute opacity-0 cursor-pointer h-0 w-0"
+                                  checked={formData.visitTypes.includes(type)}
+                                  onChange={(e) => {
+                                    const newTypes = e.target.checked
+                                      ? [...formData.visitTypes, type]
+                                      : formData.visitTypes.filter((t) => t !== type);
+                                    setFormData({ ...formData, visitTypes: newTypes });
+                                  }}
+                                />
+                                {formData.visitTypes.includes(type) && (
+                                  <CheckCircle className="w-3 h-3 text-primary" />
+                                )}
+                              </div>
+                              {type}
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2 mt-4">
                         <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Brief Symptoms or Notes (Optional)</label>
                         <textarea
                           rows={4}

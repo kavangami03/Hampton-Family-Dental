@@ -65,7 +65,7 @@ export default function NewPatientsClient() {
     },
     {
       question: "What if I do not have dental insurance?",
-      answer: "We welcome patients without dental insurance! We offer a $149 New Patient Special which covers your comprehensive examination and diagnostic digital X-rays. For long-term care, you can enroll in our in-house Dental Membership Plan, which covers your annual preventive cleaning and offers significant discounts on restorative treatments."
+      answer: "We welcome patients without dental insurance! For long-term care, you can enroll in our in-house Dental Membership Plan, which covers your annual preventive cleaning and offers significant discounts on restorative treatments."
     }
   ];
 
@@ -116,7 +116,7 @@ export default function NewPatientsClient() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-white/75 text-base md:text-lg leading-relaxed max-w-2xl"
             >
-              We look forward to meeting you. Find onboarding details, new-patient specials, and answers to common questions about your first visit.
+              We look forward to meeting you. Find onboarding details and answers to common questions about your first visit.
             </motion.p>
           </div>
         </div>
@@ -263,16 +263,13 @@ export default function NewPatientsClient() {
                   No insurance? No problem. We believe high-quality dental care should be affordable for everyone. At Hampton Family Dental, we offer a dedicated welcome promotion to make your transition easy:
                 </p>
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
-                  <p className="font-heading text-primary-light text-2xl font-bold">
-                    $149 Welcome Special
+                  <p className="font-heading text-primary-light text-xl font-bold">
+                    In-House Membership Plan
                   </p>
                   <p className="text-white/80 text-xs md:text-sm leading-relaxed">
-                    Includes a comprehensive clinical examination, complete diagnostic digital X-rays, and custom consultation with Dr. Brenner or Dr. Dudhat.
+                    A budget-friendly in-house Membership Plan that covers routine cleanings, complete diagnostic X-rays, and gives you significant discounts on all treatments.
                   </p>
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  For your ongoing care, we also offer a budget-friendly in-house Membership Plan that covers routine cleanings and gives you significant discounts on all treatments.
-                </p>
               </div>
               
               <div className="pt-6 relative z-10">
@@ -280,7 +277,7 @@ export default function NewPatientsClient() {
                   href="/specials"
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white text-xs font-semibold tracking-widest uppercase hover:bg-primary-light hover:scale-105 transition-all duration-300 shadow-md"
                 >
-                  View Special Offers
+                  View Membership Plan
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

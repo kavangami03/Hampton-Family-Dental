@@ -161,6 +161,57 @@ export default function FinancingOptionsClient() {
 
               <hr className="border-navy/5" />
 
+              {/* Cherry Financing */}
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2">
+                  <CreditCard className="w-5 h-5 text-primary" />
+                  <span className="text-primary text-[10px] tracking-[0.2em] uppercase font-bold">Flexible Installments</span>
+                </div>
+                <h2 className="font-heading text-navy text-3xl font-bold">
+                  Cherry Financing
+                </h2>
+                <p className="text-navy/80 text-sm md:text-base leading-relaxed">
+                  We also accept <strong>Cherry</strong>, a simple, flexible payment plan that allows you to break your treatment costs into smaller, more manageable monthly payments. 
+                </p>
+                <p className="text-navy/80 text-sm md:text-base leading-relaxed">
+                  Cherry performs a soft credit check that does not impact your credit score, offering rapid approvals and high approval rates. Key benefits include:
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div className="flex gap-3 items-start bg-beige-light/10 border border-navy/5 p-4 rounded-2xl">
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-heading text-navy font-bold text-sm">Flexible Payment Options</h4>
+                      <p className="text-navy/60 text-xs leading-relaxed mt-1">
+                        Choose from multiple payment plan options that work best for your monthly budget, including 0% APR options for qualifying patients.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 items-start bg-beige-light/10 border border-navy/5 p-4 rounded-2xl">
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-heading text-navy font-bold text-sm">Fast & Easy Application</h4>
+                      <p className="text-navy/60 text-xs leading-relaxed mt-1">
+                        Apply from your smartphone in seconds. There are no hidden costs and no hard credit checks to apply.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-2">
+                  <a
+                    href="https://withcherry.com/patients"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-white text-xs font-semibold tracking-widest uppercase hover:bg-primary-light transition-all duration-300 shadow-md"
+                  >
+                    Learn More About Cherry
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <hr className="border-navy/5" />
+
               {/* In-House Wellness Membership Plan */}
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2">

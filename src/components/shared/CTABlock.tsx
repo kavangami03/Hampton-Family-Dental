@@ -13,6 +13,7 @@ export default function CTABlock() {
     phone: "",
     timeOfDay: "",
     message: "",
+    visitTypes: [] as string[],
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +21,7 @@ export default function CTABlock() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", timeOfDay: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", timeOfDay: "", message: "", visitTypes: [] });
     }, 4000);
   };
 
@@ -167,6 +168,33 @@ export default function CTABlock() {
                           <option value="afternoon" className="bg-navy-dark">Afternoon (12pm – 4pm)</option>
                           <option value="late-afternoon" className="bg-navy-dark">Late Afternoon (4pm – 6pm)</option>
                         </select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-bold uppercase tracking-wider text-white/45">Reason for Visit (Select all that apply)</label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {["New Patient Exam", "Routine Cleaning", "Emergency Exam", "Consultation"].map((type) => (
+                          <label key={type} className="flex items-center gap-2 text-xs text-white/80 cursor-pointer group">
+                            <div className="relative flex items-center justify-center w-4 h-4 rounded border border-white/20 bg-white/5 group-hover:border-primary-light transition-colors">
+                              <input
+                                type="checkbox"
+                                className="absolute opacity-0 cursor-pointer h-0 w-0"
+                                checked={formData.visitTypes.includes(type)}
+                                onChange={(e) => {
+                                  const newTypes = e.target.checked
+                                    ? [...formData.visitTypes, type]
+                                    : formData.visitTypes.filter((t) => t !== type);
+                                  setFormData({ ...formData, visitTypes: newTypes });
+                                }}
+                              />
+                              {formData.visitTypes.includes(type) && (
+                                <CheckCircle className="w-3 h-3 text-primary-light" />
+                              )}
+                            </div>
+                            {type}
+                          </label>
+                        ))}
                       </div>
                     </div>
 

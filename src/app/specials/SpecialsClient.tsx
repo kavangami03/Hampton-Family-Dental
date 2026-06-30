@@ -29,20 +29,6 @@ export default function SpecialsClient() {
       ],
       badge: "Limited Time",
     },
-    {
-      code: "SPECIAL-002",
-      title: "New Patient Welcome Special",
-      subtitle: "Cleaning, Exam & X-Rays",
-      desc: "Perfect for patients without insurance. Start your journey to a healthier smile with a professional dental cleaning, complete dental exam, and diagnostic X-rays at an unbeatable introductory rate.",
-      value: "$380",
-      price: "$149",
-      features: [
-        "Professional Dental Cleaning",
-        "Comprehensive Examination",
-        "Diagnostic X-Rays Included",
-      ],
-      badge: "Popular",
-    },
   ];
 
   const plans = [
@@ -105,7 +91,7 @@ export default function SpecialsClient() {
     },
     {
       q: "Can I use CareCredit along with these specials or membership plans?",
-      a: "Yes! We proudly accept CareCredit, which offers flexible, interest-free financing options for your dental treatments. Whether you are using our $149 New Patient Special or getting 15% off a crown through our membership plan, you can finance the remaining balance with CareCredit to make your care easily affordable."
+      a: "Yes! We proudly accept CareCredit and Cherry, which offer flexible financing options for your dental treatments. Whether you are getting 15% off a crown through our membership plan or need extended payments for an implant, you can finance the remaining balance to make your care easily affordable."
     },
     {
       q: "When can I start using my membership discounts?",
@@ -191,7 +177,7 @@ export default function SpecialsClient() {
               By cutting out the insurance middleman, we are able to pass significant savings directly to you. There are no surprise bills, no claim denials, and absolutely no waiting periods. If you need a procedure, you get it at a clear, discounted rate immediately. Our goal is to forge a long-lasting relationship based on trust, quality care, and absolute financial transparency. We empower you to make the best decisions for your oral health without the red tape.
             </p>
             <p>
-              In addition to our special offers and membership plans, we also provide flexible financing through CareCredit. CareCredit acts as a healthcare credit card, allowing you to break up the cost of your treatments into manageable, interest-free monthly payments. This means you can get your new patient welcome special, sign up for a membership plan, or complete a full smile makeover on a timeline that perfectly fits your budget.
+              In addition to our special offers and membership plans, we also provide flexible financing through CareCredit and Cherry. These options act as healthcare credit, allowing you to break up the cost of your treatments into manageable monthly payments. This means you can sign up for a membership plan or complete a full smile makeover on a timeline that perfectly fits your budget.
             </p>
           </div>
         </section>
